@@ -1,6 +1,6 @@
 ## Final Project Tools Finder 
 
-This Application si going to be  developing  as my final Project in the University of Sydney, to complete all the request to be a Web Developer. 
+This Application is been  developing  as my final Project in the University of Sydney, to complete all the request to be a Web Developer. 
 
 
 ## User Stories
