@@ -1,6 +1,6 @@
 const { Schema, model } = require('mongoose');
 
-const toolsSchema = new Schema({
+const toolSchema = new Schema({
   name: {
     type: String,
     trim: true,
@@ -52,6 +52,6 @@ const toolsSchema = new Schema({
 
 
 
-const Tools = model('Tools',toolsSchema);
+const Tool = model('Tool',toolsSchema);
 
-module.exports = Tools;
+module.exports = Tool;
