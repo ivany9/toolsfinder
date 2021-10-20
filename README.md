@@ -56,7 +56,7 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 
 ## `User`
 
-    * `name`
+    * `username`
 
     * `email`
 
