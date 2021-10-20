@@ -1,0 +1,19 @@
+{
+  "name": "toolsfinder",
+  "version": "1.0.0",
+  "description": "This Application si going to be  developing  as my final Project in the University of Sydney, to complete all the request to be a Web Developer.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ivany9/toolsfinder.git"
+  },
+  "author": "Jorge Ivan Rodriguez",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ivany9/toolsfinder/issues"
+  },
+  "homepage": "https://github.com/ivany9/toolsfinder#readme"
+}
