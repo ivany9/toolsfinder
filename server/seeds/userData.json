@@ -5,7 +5,7 @@
       "password":"peter8080",
       "postcode":"2031",
       "phone":"0468774456",
-       "mytools":["Ladder","Water preasure"]
+       "tools":["Ladder","Water preasure"]
        
      },
      {
@@ -14,7 +14,7 @@
         "password":"greengreen",
         "postcode":"2034",
         "phone":"0444778956",
-         "mytools":["Hammer Drill"]
+         "tools":["Hammer Drill"]
          
        },
 
@@ -24,7 +24,7 @@
         "password":"friday13",
         "postcode":"2020",
         "phone":"0445654956",
-         "mytools":["Blower"]
+         "tools":["Blower"]
          
        },
 
@@ -34,7 +34,7 @@
         "password":"80801414",
         "postcode":"2034",
         "phone":"0445654956",
-         "mytools":["Impact Drill","Jumper Cables"]
+         "tools":["Impact Drill","Jumper Cables"]
          
        }
 
