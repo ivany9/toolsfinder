@@ -1,5 +1,5 @@
 const User = require('./User');
-const Tools= require('./Tool')
+const Tool= require('./Tool')
 
 module.exports = { User, Tool };
 

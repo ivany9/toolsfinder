@@ -47,11 +47,18 @@ const toolSchema = new Schema({
     required: true,
    },
 
+   rentedby:{
+
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+
+   }
+
  
   })
 
 
 
-const Tool = model('Tool',toolsSchema);
+const Tool = model('Tool',toolSchema);
 
 module.exports = Tool;

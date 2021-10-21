@@ -33,26 +33,19 @@ const userSchema = new Schema({
     required: true
   },
 
-  tools:[
+  mytools:[
    
     {
           type: Schema.Types.ObjectId,
-          ref: "Tools",
+          ref: "Tool",
 
     }
-  ],
+  ]
 
-    toolsrented:[
+   
+
+
     
-      {
-        
-        type: Schema.Types.ObjectId,
-        ref: "Tools",
-
-      } 
-
-
-    ]
   })
 
 
