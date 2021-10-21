@@ -2,13 +2,9 @@ const {gql } = require('apollo-server-express');
 
 const typeDefs = gql`
   type User {
-    _id: ID
-    username: String
+    
     email:String
-    password:String
-    postcode:String
-    phone:String
-    mytools:
+    username:String
   
   }
 
@@ -16,7 +12,7 @@ const typeDefs = gql`
     users: [User]
     
   }
-`
+`;
 module.exports = typeDefs;
 
 
@@ -31,3 +27,11 @@ module.exports = typeDefs;
 //   removeSkill(profileId: ID!, skill: String!): Profile
 // }
 
+// _id: ID
+//     username: String
+//     email:String
+//     password:String
+//     postcode:String
+//     phone:String
+//     mytools:
+ 

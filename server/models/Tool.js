@@ -1,18 +1,21 @@
 const { Schema, model } = require('mongoose');
 
-const toolSchema = new Schema({
+
+const toolSchema = new Schema(
+  {
   name: {
     type: String,
     trim: true,
     required: "name is Required"
   },
 
-  category: {
+  category: { 
     type: String,
-    required: true,
-    unique: true,
+     
+     
     
-  },
+    },
+ 
     
    description:{
     type:String, 
@@ -25,10 +28,11 @@ const toolSchema = new Schema({
     default: Date.now
   },
 
-  status:{
-    type:Boolean
-   
-   },
+  status: {
+    type: Boolean,
+    default: false
+  },
+ 
 
     returndate:{
       type:Date,
@@ -47,12 +51,18 @@ const toolSchema = new Schema({
     required: true,
    },
 
-   rentedby:{
+   rentedby:[
 
-    type: Schema.Types.ObjectId,
-    ref: 'User'
+    {
+      type: String,
+      trim: true,
+    }
+   
+  
+   ]
+    
 
-   }
+   
 
  
   })

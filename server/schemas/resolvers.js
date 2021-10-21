@@ -1,10 +1,10 @@
 const { User } = require('../models');
-const { Tools }= require('../models')
+const { Tools }= require('../models');
 
 const resolvers = {
   Query: {
     users: async () => {
-      return User.find();
+      return await User.find({});
     },
 
 //     user: async (parent, { userId }) => {
@@ -41,5 +41,5 @@ const resolvers = {
 //   },
 // };
   }
-}
+};
 module.exports = resolvers;

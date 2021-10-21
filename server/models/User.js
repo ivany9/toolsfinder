@@ -1,6 +1,7 @@
 const { Schema, model } = require('mongoose');
 
-const userSchema = new Schema({
+const userSchema = new Schema(
+  {
   username: {
     type: String,
     trim: true,
@@ -35,9 +36,11 @@ const userSchema = new Schema({
 
   mytools:[
    
+
+    
     {
-          type: Schema.Types.ObjectId,
-          ref: "Tool",
+      type: String,
+      trim: true,
 
     }
   ]
@@ -46,7 +49,7 @@ const userSchema = new Schema({
 
 
     
-  })
+  });
 
 
 
