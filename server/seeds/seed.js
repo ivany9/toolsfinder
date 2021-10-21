@@ -7,7 +7,7 @@ const toolData=require('./ToolData.json');
 
 db.once('open',async()=>{
 
- 
+ try{
     
   await User.deleteMany({}); 
   await Tool.deleteMany({});
@@ -22,6 +22,11 @@ db.once('open',async()=>{
 
   console.log('all done!');
   process.exit(0);
+ 
+} catch(err){
+
+  throw err;
+}
 
 
   
