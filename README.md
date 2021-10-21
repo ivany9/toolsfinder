@@ -62,13 +62,13 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 
     * `password`
 
-    * `Location`
+    * `postcode`
 
     *  `phone number`
 
-    * `owntools`
+    * `mytools`
 
-    * `rent tools`
+    
 
 
 
@@ -94,6 +94,8 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
     * `day-price`
 
     * `hour-price`
+
+    * `rentedby`
 
 
 
