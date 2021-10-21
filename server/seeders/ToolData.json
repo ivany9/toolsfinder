@@ -1,0 +1,59 @@
+[
+ {
+   "name":"Hammer Drill",
+   "category":"Drills",
+   "description":"Makita green model 1234",
+   "status":"True",
+   "dayprice":"50",
+    "hourprice":"8",
+    "rentedby":"Peter134"
+  },
+  {
+    "name":"Impact Drill",
+    "category":"Drills",
+    "description":"Makita black model 1212",
+    "status":"True",
+    "dayprice":"30",
+     "hourprice":"5",
+     "rentedby":"Peter134"
+   },
+   {
+    "name":"Ladder",
+    "category":"outdoor",
+    "description":"Stanley ladder 3m",
+    "status":"True",
+    "dayprice":"70",
+     "hourprice":"14",
+     "rentedby":"James007"
+   },
+   {
+    "name":"Water preasure",
+    "category":"outoor",
+    "description":"Ryobi 2000 psi",
+    "status":"False",
+    "dayprice":"45",
+     "hourprice":"10",
+     "rentedby":" "
+   },
+   {
+    "name":"Jumper Cables",
+    "category":"cars",
+    "description":"Portable 1800 mah",
+    "status":"True",
+    "dayprice":"20",
+     "hourprice":"4",
+     "rentedby":"Jaison34"
+   },
+
+
+   {
+    "name":"Blower",
+    "category":"outdoor",
+    "description":"Milwaukee M18bb",
+    "status":"True",
+    "dayprice":"100",
+     "hourprice":"20",
+     "rentedby":"Ivany9"
+   }
+    
+]

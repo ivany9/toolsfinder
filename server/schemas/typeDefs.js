@@ -8,22 +8,26 @@ const typeDefs = gql`
     password:String
     postcode:String
     phone:String
-    tools:
-    toolsrented:
-    skills: [String]!
+    mytools:
+  
   }
 
   type Query {
-    users: [User]!
-    user(userId: ID!): User
+    users: [User]
+    
   }
-
-  type Mutation {
-    addProfile(name: String!): Profile
-    addSkill(profileId: ID!, skill: String!): Profile
-    removeProfile(profileId: ID!): Profile
-    removeSkill(profileId: ID!, skill: String!): Profile
-  }
-`;
-
+`
 module.exports = typeDefs;
+
+
+
+
+
+
+// type Mutation {
+//   addProfile(name: String!): Profile
+//   addSkill(profileId: ID!, skill: String!): Profile
+//   removeProfile(profileId: ID!): Profile
+//   removeSkill(profileId: ID!, skill: String!): Profile
+// }
+
