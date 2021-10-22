@@ -46,7 +46,7 @@ const toolSchema = new Schema(
     required: true,
    },
 
-   rentedby:[
+   owner:[
 
     {
       type: Schema.Types.ObjectId,
