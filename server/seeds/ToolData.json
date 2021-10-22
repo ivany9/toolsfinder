@@ -1,6 +1,7 @@
 [
  {
-   "name":"Hammer Drill",
+  "id":1, 
+  "name":"Hammer Drill",
    "category":"Drill",
    "description":"Makita green model 1234",
    "dayprice":50,
@@ -8,6 +9,7 @@
     
   },
   {
+    "id":1,
     "name":"Impact Drill",
     "category":"Drill",
     "description":"Makita black model 1212",
@@ -16,6 +18,7 @@
      
    },
    {
+    "id":3,
     "name":"Ladder",
     "category":"outdoor",
     "description":"Stanley ladder 3m",
@@ -24,6 +27,7 @@
      "status":true
    },
    {
+    "id":4,
     "name":"Water preasure",
     "category":"outdoor",
     "description":"Ryobi 2000 psi",
@@ -32,6 +36,7 @@
      
    },
    {
+    "id":5,
     "name":"Jumper Cables",
     "category":"cars",
     "description":"Portable 1800 mah",
@@ -41,6 +46,7 @@
 
 
    {
+    "id":6,
     "name":"Blower",
     "category":"outdoorrr",
     "description":"Milwaukee M18bb",
