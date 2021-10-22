@@ -11,16 +11,13 @@ const toolSchema = new Schema(
 
   category: { 
     type: String,
-     
-     
-    
+    required: true,
     },
  
     
    description:{
     type:String, 
-    required: true,
-  
+    trim: true,
   },
   
   date: {
@@ -32,9 +29,7 @@ const toolSchema = new Schema(
     type: Boolean,
     default: false
   },
- 
-
-    returndate:{
+     returndate:{
       type:Date,
       default:Date.now
    },
@@ -54,12 +49,12 @@ const toolSchema = new Schema(
    rentedby:[
 
     {
-      type: String,
-      trim: true,
+      type: Schema.Types.ObjectId,
+      ref: "User"
+
     }
-   
-  
-   ]
+    
+  ]
     
 
    

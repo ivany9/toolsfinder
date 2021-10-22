@@ -4,38 +4,31 @@
       "email":"petersm@yahoo.com",
       "password":"peter8080",
       "postcode":"2031",
-      "phone":"0468774456",
-       "tools":["Ladder","Water preasure"]
-       
-     },
+      "phone":"0468774456"
+       },
      {
         "username":"James007",
         "email":"james23@hotmail.com",
         "password":"greengreen",
         "postcode":"2034",
-        "phone":"0444778956",
-         "tools":["Hammer Drill"]
-         
-       },
+        "phone":"0444778956"
+         },
 
        {
         "username":"Jaison34",
         "email":"jaison13@hotmail.com",
         "password":"friday13",
         "postcode":"2020",
-        "phone":"0445654956",
-         "tools":["Blower"]
-         
-       },
+        "phone":"0445654956"
+        },
 
        {
         "username":"Ivany9",
         "email":"ivany9@gmail.com",
         "password":"80801414",
         "postcode":"2034",
-        "phone":"0445654956",
-         "tools":["Impact Drill","Jumper Cables"]
-         
+        "phone":"0445654956"
+                
        }
 
 

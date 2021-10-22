@@ -7,7 +7,7 @@ const toolData=require('./ToolData.json');
 
 db.once('open',async()=>{
 
- try{
+
     
   await User.deleteMany({}); 
   await Tool.deleteMany({});
@@ -19,14 +19,14 @@ db.once('open',async()=>{
    const tools=await Tool.insertMany(toolData);
 
   
+  
+
+
 
   console.log('all done!');
   process.exit(0);
  
-} catch(err){
 
-  throw err;
-}
 
 
   
@@ -34,4 +34,4 @@ db.once('open',async()=>{
 
 
 
-  })
+  });
