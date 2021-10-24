@@ -15,6 +15,21 @@ db.once('open',async()=>{
   const tools= await Tool.insertMany(toolData);
   const users= await User.insertMany(userData);
 
+
+  for(newUser of users){
+
+
+    const tempTool = tools[Math.floor(Math.random() * tools.length)];
+    tempTool.users.push(newUser._id);
+    await tempTool.save();
+
+
+
+
+  }
+
+
+
     
 
 });
