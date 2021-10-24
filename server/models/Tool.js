@@ -20,19 +20,11 @@ const toolSchema = new Schema(
     trim: true,
   },
   
-  date: {
-    type: Date,
-    default: Date.now
-  },
-
   status: {
     type: Boolean,
     default: false
   },
-     returndate:{
-      type:Date,
-      default:Date.now
-   },
+ 
    
 
     dayprice:{
@@ -46,7 +38,12 @@ const toolSchema = new Schema(
     required: true,
    },
 
-   owner:[
+   duerent:{
+    type:Date,
+    default: Date.now,
+  },
+
+  rent :
 
     {
       type: Schema.Types.ObjectId,
@@ -54,7 +51,7 @@ const toolSchema = new Schema(
 
     }
     
-  ]
+  
     
 
    
