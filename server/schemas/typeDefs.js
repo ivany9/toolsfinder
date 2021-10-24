@@ -41,9 +41,9 @@ const typeDefs = gql`
   
      type Mutation{
       addUser(username:String!,email:String,password:String!,postcode:String!,phone:String!):Auth
-      login(email:String!,password:String!)Auth
-      addTool(name:String,category:String!,description:String!,dayprice:Int!,hourprice:Int!):Tool
-      removeTool(toolId:ID!):Tool
+      login(email:String!,password:String!):Auth
+      addTool(name:String,category:String!,description:String!,dayprice:Int!,hourprice:Int!):User
+      removeTool(toolId:ID!):User
       
      
     }

@@ -1,7 +1,7 @@
-//const { AuthenticationError } = require('apollo-server-express');
-const { User } = require('../models');
+const { AuthenticationError } = require('apollo-server-express');
+const { User, Tool } = require('../models');
 const { Tools }= require('../models');
-//const { signToken } = require('../utils/auth');
+const { signToken } = require('../utils/auth');
 
 
 const resolvers = {
@@ -50,6 +50,7 @@ const resolvers = {
     addTool: async (parent, { userId, name, category,description,status,dayprice,hourprice }, context) => {
       // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
       if (context.user) {
+      
         return User.findOneAndUpdate(
           { _id: userId },
           {
@@ -65,9 +66,19 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
     }, 
 
-
+    // removeSkill: async (parent, { skill }, context) => {
+    //   if (context.user) {
+    //     return Profile.findOneAndUpdate(
+    //       { _id: context.user._id },
+    //       { $pull: { skills: skill } },
+    //       { new: true }
+    //     );
+    //   }
+    //   throw new AuthenticationError('You need to be logged in!');
+    // },
 
  
+  }}
 
 
 
@@ -106,6 +117,5 @@ const resolvers = {
 //     },
 //   },
 // };
-  }
-};
+
 module.exports = resolvers;
