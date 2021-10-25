@@ -10,6 +10,11 @@ const resolvers = {
       return User.find();
     },
 
+    users:async()=>{
+       return await User.find({}).populate('mytools');        
+      
+    } ,
+
     user: async (parent, { userId }) => {
       return User.findOne({ _id: userId });
     },

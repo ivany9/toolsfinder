@@ -32,8 +32,11 @@ const typeDefs = gql`
   type Query {
     users: [User]
     user(userId: ID!): User
+    toolId(toolId:ID!):Tool
+    tools:[Tool]
     tool(toolId:ID!):Tool
     me: User
+   
   }
         
 
