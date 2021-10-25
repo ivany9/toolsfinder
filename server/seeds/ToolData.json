@@ -34,24 +34,6 @@
     "dayprice":45,
      "hourprice":10
      
-   },
-   {
-    
-    "name":"Jumper Cables",
-    "category":"cars",
-    "description":"Portable 1800 mah",
-    "dayprice":20,
-     "hourprice":4
-   },
-
-
-   {
-    
-    "name":"Blower",
-    "category":"outdoorrr",
-    "description":"Milwaukee M18bb",
-    "dayprice":100,
-     "hourprice":20
    }
     
 ]

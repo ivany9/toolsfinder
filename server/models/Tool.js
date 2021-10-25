@@ -1,66 +1,50 @@
-const { Schema, model } = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-
-const toolSchema = new Schema(
-  {
+const toolSchema = new Schema({
   name: {
     type: String,
     trim: true,
-    required: "name is Required"
+    required: "name is Required",
   },
 
-  category: { 
+  category: {
     type: String,
     required: true,
-    },
- 
-    
-   description:{
-    type:String, 
+  },
+
+  description: {
+    type: String,
     trim: true,
   },
-  
+
   status: {
     type: Boolean,
-    default: false
+    default: false,
   },
- 
-   
 
-    dayprice:{
-       type:Number,
-       required: true,
-   },
-
-
-   hourprice:{
-    type:Number,
+  dayprice: {
+    type: Number,
     required: true,
-   },
+  },
 
-   duerent:{
-    type:Date,
+  hourprice: {
+    type: Number,
+    required: true,
+  },
+
+  duerent: {
+    type: Date,
     default: Date.now,
   },
 
-  rent :
-
-    {
+  rent: {
+    // id: {
       type: Schema.Types.ObjectId,
-      ref: "User"
+      ref: "User",
+    // },
+  },
+});
 
-    }
-    
-  
-    
-
-   
-
- 
-  })
-
-
-
-const Tool = model('Tool',toolSchema);
+const Tool = model("Tool", toolSchema);
 
 module.exports = Tool;
