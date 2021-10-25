@@ -9,6 +9,16 @@ const resolvers = {
     users: async () => {
       return User.find();
     },
+  
+    tools: async () => {
+      return Tool.find();
+    },
+
+    tools:async()=>{
+      return await Tool.find({}).populate('rent');        
+     
+   },
+   
 
     users:async()=>{
        return await User.find({}).populate('mytools');        
@@ -52,24 +62,12 @@ const resolvers = {
       return { token, user };
     }, 
     
-    addTool: async (parent, { userId, name, category,description,status,dayprice,hourprice }, context) => {
-      // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-      if (context.user) {
-      
-        return User.findOneAndUpdate(
-          { _id: userId },
-          {
-            $addToSet: { mytools: name, category,description,status,dayprice,hourprice  },
-          },
-          {
-            new: true,
-            runValidators: true,
-          }
-        );
-      }
-      // If user attempts to execute this mutation and isn't logged in, throw an error
-      throw new AuthenticationError('You need to be logged in!');
-    }, 
+    //addUser test
+
+    addUserT: async
+
+
+
 
     // removeSkill: async (parent, { skill }, context) => {
     //   if (context.user) {
@@ -86,41 +84,30 @@ const resolvers = {
   }}
 
 
-
+  // addTool: async (parent, { userId, name, category,description,status,dayprice,hourprice }, context) => {
+  //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
+  //   if (context.user) {
+    
+  //     return User.findOneAndUpdate(
+  //       { _id: userId },
+  //       {
+  //         $addToSet: { mytools: name, category,description,status,dayprice,hourprice  },
+  //       },
+  //       {
+  //         new: true,
+  //         runValidators: true,
+  //       }
+  //     );
+  //   }
+  //   // If user attempts to execute this mutation and isn't logged in, throw an error
+  //   throw new AuthenticationError('You need to be logged in!');
+  // }, 
     
 
-//     user: async (parent, { userId }) => {
-//       return User.findOne({ _id: userId });
-//     },
-//   },
 
-//   Mutation: {
-//     addProfile: async (parent, { name }) => {
-//       return Profile.create({ name });
-//     },
-//     addSkill: async (parent, { profileId, skill }) => {
-//       return Profile.findOneAndUpdate(
-//         { _id: profileId },
-//         {
-//           $addToSet: { skills: skill },
-//         },
-//         {
-//           new: true,
-//           runValidators: true,
-//         }
-//       );
-//     },
-//     removeProfile: async (parent, { profileId }) => {
-//       return Profile.findOneAndDelete({ _id: profileId });
-//     },
-//     removeSkill: async (parent, { profileId, skill }) => {
-//       return Profile.findOneAndUpdate(
-//         { _id: profileId },
-//         { $pull: { skills: skill } },
-//         { new: true }
-//       );
-//     },
-//   },
-// };
+
+
+
+
 
 module.exports = resolvers;
