@@ -12,7 +12,7 @@ mongoose
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
-    // useFindAndModify: false,
+    useFindAndModify: false,
   })
   .then(() => {
     Promise.all([User.create(userData)])
@@ -37,26 +37,12 @@ mongoose
       });
   });
 
-//  {
 
-//   "name":"Jumper Cables",
-//   "category":"cars",
-//   "description":"Portable 1800 mah",
-//   "dayprice":20,
-//    "hourprice":4
-//  },
 
-//  {
 
-//   "name":"Blower",
-//   "category":"outdoorrr",
-//   "description":"Milwaukee M18bb",
-//   "dayprice":100,
-//    "hourprice":20
-//  }
 
 console.log("all done!");
-// process.exit(0);
+
 
 
 

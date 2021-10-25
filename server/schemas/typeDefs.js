@@ -20,7 +20,7 @@ const typeDefs = gql`
     dayprice:Int
     hourprice:Int
     duerent:String
-    rent:[User]
+    rent:User
     }
 
   
@@ -45,6 +45,7 @@ const typeDefs = gql`
   
      type Mutation{
       addUser(username:String!,email:String,password:String!,postcode:String!,phone:String!):Auth
+      addUsert(username:String!,email:String,password:String!,postcode:String!,phone:String!):User
       login(email:String!,password:String!):Auth
       addTool(name:String,category:String!,description:String!,dayprice:Int!,hourprice:Int!):User
       removeTool(toolId:ID!):User

@@ -6,6 +6,7 @@ const userSchema = new Schema({
     type: String,
     trim: true,
     required: "Username is Required",
+    unique: true,
   },
 
   email: {
@@ -30,6 +31,7 @@ const userSchema = new Schema({
   phone: {
     type: String,
     required: true,
+    unique: true,
   },
 
   mytools: [

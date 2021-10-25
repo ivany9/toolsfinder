@@ -64,7 +64,10 @@ const resolvers = {
     
     //addUser test
 
-    addUserT: async
+    addUsert: async (parent, { username, email, password,postcode,phone})=>{
+        return await User.create({username, email, password,postcode,phone})  
+     
+    }
 
 
 

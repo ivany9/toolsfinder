@@ -38,10 +38,10 @@ const toolSchema = new Schema({
   },
 
   rent: {
-    // id: {
+    
       type: Schema.Types.ObjectId,
       ref: "User",
-    // },
+  
   },
 });
 
