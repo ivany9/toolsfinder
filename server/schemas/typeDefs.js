@@ -52,7 +52,7 @@ const typeDefs = gql`
       removeTool(toolId:ID!):Tool
       updatedayprice(toolId:ID!,dayprice:Int):Tool
       updatehourprice(toolId:ID!,hourprice:Int):Tool
-      updatestatus(toolId:ID!,status:Boolean):Tool
+      updateStatus(toolId:ID!,status:Boolean):Tool
 
     }
 

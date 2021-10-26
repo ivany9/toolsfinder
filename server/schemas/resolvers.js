@@ -105,17 +105,19 @@ const resolvers = {
  
           return Tool.findOneAndUpdate({_id:toolId},{hourprice})
           },
+
+          updateStatus:async(parent,{toolId,status})=>{
+  
+          return Tool.findOneAndUpdate({_id:toolId},{status})
+           },
     
        removeTool: async (parent, { toolId }) => {
         return Tool.findOneAndDelete({ _id: toolId });
 
        }, 
 
-      //  updateStatus:async(parent,{toolId,description})=>{
- 
-      //   return Tool.findOneAndUpdate({_id:toolId},{description})
-      //   },
-  
+       
+    
              
 
        
