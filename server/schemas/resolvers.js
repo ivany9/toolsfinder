@@ -9,6 +9,7 @@ const resolvers = {
     users: async () => {
       return User.find();
     },
+
   
     tools: async () => {
       return Tool.find();
@@ -63,28 +64,51 @@ const resolvers = {
     }, 
     
     //addUser test
-
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     addUsert: async (parent, { username, email, password,postcode,phone})=>{
         return await User.create({username, email, password,postcode,phone})  
      
-    }
+    },
+     addToolt: async (parent,{userId,name,category,description,dayprice,hourprice})=>{
+       const tool=await Tool.create({name,category,description,dayprice,hourprice})
+       return User.findOneAndUpdate(
+         {_id:userId},
+         {
+           $addToSet:{mytools:tool._id}
+         },
+         
+       );
+       return tool;
+        },
+
+     Rentoolt: async(parent,{toolId,username})=>{
+       const user=await User.findOne({username});
+       console.log(username);
+        return Tool.findOneAndUpdate(
+           {_id:toolId},
+           {
+             $addToSet:{rent:user._id}
+            },
+            {
+              new: true,
+              runValidators: true,
+              //status:true
+            }
+        )
+          }
+             
+
+       
 
 
 
+    
 
-    // removeSkill: async (parent, { skill }, context) => {
-    //   if (context.user) {
-    //     return Profile.findOneAndUpdate(
-    //       { _id: context.user._id },
-    //       { $pull: { skills: skill } },
-    //       { new: true }
-    //     );
-    //   }
-    //   throw new AuthenticationError('You need to be logged in!');
-    // },
+    
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+  }
 
- 
-  }}
+}
 
 
   // addTool: async (parent, { userId, name, category,description,status,dayprice,hourprice }, context) => {

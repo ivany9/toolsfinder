@@ -47,11 +47,13 @@ const typeDefs = gql`
       addUser(username:String!,email:String,password:String!,postcode:String!,phone:String!):Auth
       addUsert(username:String!,email:String,password:String!,postcode:String!,phone:String!):User
       login(email:String!,password:String!):Auth
-      addTool(name:String,category:String!,description:String!,dayprice:Int!,hourprice:Int!):User
+      addToolt(userId:ID!,name:String!,category:String!,description:String!,dayprice:Int!,hourprice:Int!):Tool
+      Rentoolt(toolId:ID!,username:String):Tool
       removeTool(toolId:ID!):User
       
      
     }
+
 
 
 `;
