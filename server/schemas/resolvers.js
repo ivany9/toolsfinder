@@ -92,7 +92,7 @@ const resolvers = {
             {
               new: true,
               runValidators: true,
-              //status:true
+              
             }
         )
           }
