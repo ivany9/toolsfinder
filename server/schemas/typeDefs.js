@@ -48,10 +48,12 @@ const typeDefs = gql`
       addUsert(username:String!,email:String,password:String!,postcode:String!,phone:String!):User
       login(email:String!,password:String!):Auth
       addToolt(userId:ID!,name:String!,category:String!,description:String!,dayprice:Int!,hourprice:Int!):Tool
-      Rentoolt(toolId:ID!,username:String):Tool
-      removeTool(toolId:ID!):User
-      
-     
+      rentoolt(toolId:ID!,username:String):Tool
+      removeTool(toolId:ID!):Tool
+      updatedayprice(toolId:ID!,dayprice:Int):Tool
+      updatehourprice(toolId:ID!,hourprice:Int):Tool
+      updatestatus(toolId:ID!,status:Boolean):Tool
+
     }
 
 

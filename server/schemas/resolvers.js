@@ -78,10 +78,10 @@ const resolvers = {
          },
          
        );
-       return tool;
+       //return tool;
         },
 
-     Rentoolt: async(parent,{toolId,username})=>{
+     rentoolt: async(parent,{toolId,username})=>{
        const user=await User.findOne({username});
        console.log(username);
         return Tool.findOneAndUpdate(
@@ -95,7 +95,27 @@ const resolvers = {
               
             }
         )
-          }
+          },
+      updatedayprice:async(parent,{toolId,dayprice})=>{
+ 
+         return Tool.findOneAndUpdate({_id:toolId},{dayprice})
+         },
+   
+         updatehourprice:async(parent,{toolId,hourprice})=>{
+ 
+          return Tool.findOneAndUpdate({_id:toolId},{hourprice})
+          },
+    
+       removeTool: async (parent, { toolId }) => {
+        return Tool.findOneAndDelete({ _id: toolId });
+
+       }, 
+
+      //  updateStatus:async(parent,{toolId,description})=>{
+ 
+      //   return Tool.findOneAndUpdate({_id:toolId},{description})
+      //   },
+  
              
 
        
@@ -109,27 +129,6 @@ const resolvers = {
   }
 
 }
-
-
-  // addTool: async (parent, { userId, name, category,description,status,dayprice,hourprice }, context) => {
-  //   // If context has a `user` property, that means the user executing this mutation has a valid JWT and is logged in
-  //   if (context.user) {
-    
-  //     return User.findOneAndUpdate(
-  //       { _id: userId },
-  //       {
-  //         $addToSet: { mytools: name, category,description,status,dayprice,hourprice  },
-  //       },
-  //       {
-  //         new: true,
-  //         runValidators: true,
-  //       }
-  //     );
-  //   }
-  //   // If user attempts to execute this mutation and isn't logged in, throw an error
-  //   throw new AuthenticationError('You need to be logged in!');
-  // }, 
-    
 
 
 

@@ -1,24 +1,27 @@
 import React from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import {FooterLink,Container} from './FooterStyles';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook,faInstagram,faTwitter,faGithub} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
-  const location = useLocation();
-  const history = useHistory();
-  return (
-    <footer className="w-100 mt-auto text-dark p-4">
-      <div className="container text-center mb-5">
-        {location.pathname !== '/' && (
-          <button
-            className="btn btn-dark mb-3"
-            onClick={() => history.goBack()}
-          >
-            &larr; Go Back
-          </button>
-        )}
-        <h4>&copy; {new Date().getFullYear()} - Tech Friends</h4>
-      </div>
-    </footer>
-  );
-};
+   
+    return (
+        
+        
+         <Container>
+       
+       <FooterLink href="https://facebook.com/jorgivan/" ><FontAwesomeIcon icon={faFacebook}/></FooterLink>
+       <FooterLink href="https://instagram.com/jivan298" ><FontAwesomeIcon icon={faInstagram}/></FooterLink>
+       <FooterLink href="https://twitter.com/jorgivan298" ><FontAwesomeIcon icon={faTwitter}/></FooterLink>    
+       <FooterLink href="https://github.com/ivany9" ><FontAwesomeIcon icon={faGithub}/></FooterLink> 
+          
+           
+      </Container>
+    );
+  };
+  export default Footer;
 
-export default Footer;
+
+
+
+
