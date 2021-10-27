@@ -11,13 +11,13 @@ const Navbar = () => {
   return (
     <>
       <Nav>
-        <NavLink to='/about'>
+        <NavLink to='/'>
           <MainLink>
           Jorge Ivan Rodriguez </MainLink>
             </NavLink>
         <Bars />
         <NavMenu>
-          <NavLink to='/about' activeStyle>
+          <NavLink to='/login' activeStyle>
             About me
           </NavLink>
           <NavLink to='/portfolio' activeStyle>
