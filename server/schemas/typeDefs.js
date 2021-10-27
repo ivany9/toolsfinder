@@ -54,7 +54,8 @@ const typeDefs = gql`
       updatehourprice(toolId:ID!,hourprice:Int):Tool
       updateStatus(toolId:ID!,status:Boolean):Tool
       adddueRent(toolId:ID!,duerent:String):Tool
-
+      removeRent(toolId:ID!):Tool
+  
     }
 
 

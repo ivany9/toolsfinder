@@ -13,7 +13,7 @@ const Navbar = () => {
       <Nav>
         <NavLink to='/'>
           <MainLink>
-          Jorge Ivan Rodriguez </MainLink>
+          ToolsFinder </MainLink>
             </NavLink>
         <Bars />
         <NavMenu>

@@ -39,7 +39,7 @@ export const MainLink = styled.p`
   color:white;
 
   &:hover {
-    color: gray;
+    color: green;
     transition: 200ms ease-in;
   }
 

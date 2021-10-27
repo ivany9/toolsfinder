@@ -78,7 +78,7 @@ const resolvers = {
          },
          
        );
-       //return tool;
+
         },
 
      rentoolt: async(parent,{toolId,username})=>{
@@ -122,7 +122,21 @@ const resolvers = {
 
        }, 
 
-       
+       removeRent: async(parent,{toolId})=>{
+         return Tool.findOneAndUpdate(
+            {_id:toolId},
+            {
+              $Set:{rent:null}
+            },
+            {
+              new: true,
+              runValidators: true,
+              
+            }
+        )
+          },
+
+        
     
              
 
