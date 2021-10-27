@@ -110,6 +110,12 @@ const resolvers = {
   
           return Tool.findOneAndUpdate({_id:toolId},{status})
            },
+
+           adddueRent:async(parent,{toolId,duerent})=>{
+  
+            return Tool.findOneAndUpdate({_id:toolId},{duerent})
+             },
+
     
        removeTool: async (parent, { toolId }) => {
         return Tool.findOneAndDelete({ _id: toolId });
