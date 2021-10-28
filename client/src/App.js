@@ -5,7 +5,7 @@ import Login from './Pages/login';
 import Home from './Pages/home';
 import Contact from './Pages/contact';
 import Resume from './Pages/resume';
-import Portfolio from './Pages/portfolio';
+import Signup from './Pages/signup';
 import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
@@ -41,7 +41,6 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-
     <div className="page-contanier">
          <div className="page-wrap">
     <Router>
@@ -50,13 +49,17 @@ function App() {
         <Route exact  path='/'>
           <Home/>
           </Route>
-        <Route path='/login' exact component={Login} /> 
-        <Route path='/portfolio'exact component={Portfolio} />
+        <Route exact path='/login'>
+        <Login/>
+        </Route>
+        <Route exact path='/signup'>
+        <Signup/>
+        </Route> 
+        
         <Route path='/contact'exact component={Contact} />
         <Route path='/resume'exact component={Resume} />
       </Switch>
     </Router>
-
      </div>
     <Footer/>
    </div>

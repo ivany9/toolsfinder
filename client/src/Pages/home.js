@@ -18,7 +18,7 @@ const Home = () => {
           ) : (
             <ToolList
               tools={tools}
-              title="Here's the current roster of friends..."
+              title="Tools for you!!!!"
             />
           )}
         </div>

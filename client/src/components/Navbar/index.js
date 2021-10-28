@@ -6,8 +6,16 @@ import {
   NavMenu,
   MainLink,
 } from './NavbarElements';
+import Button from 'react-bootstrap/Button';
+import Auth from '../../utils/auth';
 
 const Navbar = () => {
+const logout=(event)=>{
+  event.preventDefault();
+  Auth.logout();
+
+};
+
   return (
     <>
       <Nav>
@@ -16,13 +24,21 @@ const Navbar = () => {
           ToolsFinder </MainLink>
             </NavLink>
         <Bars />
-        <NavMenu>
-          <NavLink to='/login' activeStyle>
-            About me
+        <NavMenu> 
+        {Auth.loggedIn()?(  
+        <Button className="btn btn-lg btn-light m-1" onClick={logout}>
+            logout
+          </Button>  
+        ):(
+          <>
+          <NavLink className="btn btn-lg btn-primary m-2" to="/login">
+           Login
           </NavLink>
-          <NavLink to='/portfolio' activeStyle>
-            Portfolio
+          <NavLink className="btn btn-lg btn-light m-2" to="/signup">
+            Signup
           </NavLink>
+          </>
+           )}
           <NavLink to='/contact' activeStyle>
             Contact 
           </NavLink>

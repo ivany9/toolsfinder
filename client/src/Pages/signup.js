@@ -1,13 +1,20 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import { useMutation } from '@apollo/client';
-import { LOGIN_USER } from '../utils/mutations';
+import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const Login = (props) => {
-  const [formState, setFormState] = useState({ email: '', password: '' });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
+const Signup = () => {
+  const [formState, setFormState] = useState({
+    username: '',
+    email: '',
+    password: '',
+    postcode:'',
+    phone:'',
+  });
+  const [addUser, { error, data }] = useMutation(ADD_USER);
 
   // update state based on form input changes
   const handleChange = (event) => {
@@ -23,28 +30,23 @@ const Login = (props) => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
+
     try {
-      const { data } = await login({
+      const { data } = await addUser({
         variables: { ...formState },
       });
 
-      Auth.login(data.login.token);
+      Auth.login(data.addUser.token);
     } catch (e) {
       console.error(e);
     }
-
-    // clear form values
-    setFormState({
-      email: '',
-      password: '',
-    });
   };
 
   return (
     <main className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
           <div className="card-body">
             {data ? (
               <p>
@@ -53,6 +55,14 @@ const Login = (props) => {
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
+                <input
+                  className="form-input"
+                  placeholder="Your username"
+                  name="username"
+                  type="text"
+                  value={formState.username}
+                  onChange={handleChange}
+                />
                 <input
                   className="form-input"
                   placeholder="Your email"
@@ -66,6 +76,22 @@ const Login = (props) => {
                   placeholder="******"
                   name="password"
                   type="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                />
+                 <input
+                  className="form-input"
+                  placeholder="2021"
+                  name="postcode"
+                  type="text"
+                  value={formState.postcode}
+                  onChange={handleChange}
+                />
+                 <input
+                  className="form-input"
+                  placeholder="xxx xxxx xxx"
+                  name="phone"
+                  type="text"
                   value={formState.password}
                   onChange={handleChange}
                 />
@@ -91,4 +117,4 @@ const Login = (props) => {
   );
 };
 
-export default Login;
+export default Signup;
