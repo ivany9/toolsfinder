@@ -39,8 +39,8 @@ const logout=(event)=>{
           </NavLink>
           </>
            )}
-          <NavLink to='/contact' activeStyle>
-            Contact 
+          <NavLink to='/addtool' activeStyle>
+            AddTool 
           </NavLink>
           <NavLink to='/resume' activeStyle>
             Resume

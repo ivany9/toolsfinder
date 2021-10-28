@@ -6,16 +6,8 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    users: async () => {
-      return User.find();
-    },
-
-  
-    tools: async () => {
-      return Tool.find();
-    },
-
-    tools:async()=>{
+   
+     tools:async()=>{
       return await Tool.find({}).populate('rent');        
      
    },
@@ -27,7 +19,11 @@ const resolvers = {
     } ,
 
     user: async (parent, { userId }) => {
-      return User.findOne({ _id: userId });
+      return User.findOne({ _id: userId }).populate('mytools');
+    },
+
+    tool: async (parent, { toolId }) => {
+      return Tool.findOne({ _id: toolId }).populate('rent');
     },
 
     me: async (parent, args, context) => {
@@ -112,7 +108,7 @@ const resolvers = {
            },
 
            adddueRent:async(parent,{toolId,duerent})=>{
-  
+              console.log(duerent);
             return Tool.findOneAndUpdate({_id:toolId},{duerent})
              },
 
@@ -123,18 +119,20 @@ const resolvers = {
        }, 
 
        removeRent: async(parent,{toolId})=>{
-         return Tool.findOneAndUpdate(
-            {_id:toolId},
-            {
-              $Set:{rent:null}
-            },
-            {
-              new: true,
-              runValidators: true,
+        console.log(toolId); 
+        return Tool.findOneAndUpdate({_id:toolId},{rent:null})
+       }   
+        //   {_id:toolId},
+        //     {
+        //       $Set:{rent:null}
+        //     },
+        //     {
+        //       new: true,
+        //       runValidators: true,
               
-            }
-        )
-          },
+        //     }
+        // )
+        //   },
 
         
     

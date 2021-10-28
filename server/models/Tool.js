@@ -36,7 +36,7 @@ const toolSchema = new Schema({
   duerent: {
     type: Date,
     default: Date.now,
-    get: (timestamp) => dateFormat(timestamp)
+   
   },
 
   rent: {

@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/ivany9/toolsfinder/issues"
   },
-  "homepage": "https://github.com/ivany9/toolsfinder#readme"
+  "homepage": "https://github.com/ivany9/toolsfinder#readme",
+  "dependencies": {
+    "concurrently": "^6.3.0"
+  }
 }
