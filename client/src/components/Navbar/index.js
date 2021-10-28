@@ -27,8 +27,8 @@ const logout=(event)=>{
         <NavMenu> 
         {Auth.loggedIn()?(  
         <Button className="btn btn-lg btn-light m-1" onClick={logout}>
-            logout
-          </Button>  
+            logout</Button>  
+           
         ):(
           <>
           <NavLink className="btn btn-lg btn-primary m-2" to="/login">

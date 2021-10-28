@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
-import ToolList from '../components/toolList';
+import ToolList from '../components/Profile';
 
 import { QUERY_TOOLS } from '../utils/queries';
 
