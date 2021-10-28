@@ -46,7 +46,7 @@ export const QUERY_TOOLS = gql`
 
 export const QUERY_SINGLE_TOOL = gql`
   query singleTool($tooId: ID!) {
-    tool(toolId: $toolId) {
+    tool(toolId: $toolId) {user
       
       _id
       rent{
