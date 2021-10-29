@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './Pages/login';
 import AddTool from './Pages/addtool';
 import Home from './Pages/home';
+import Profile from './Pages/profile';
 import Resume from './Pages/resume';
 import Signup from './Pages/signup';
 import Footer from './components/Footer'
@@ -52,12 +53,15 @@ function App() {
         <Route exact path='/login'>
         <Login/>
         </Route>
+        <Route exact path="/me">
+        <Profile />
+        </Route>
         <Route exact path='/signup'>
         <Signup/>
-        </Route> 
-        <Route exact path='/addtool'>
-        <AddTool/>
-        </Route> 
+        </Route>
+        <Route exact path="/profile/:userId">
+              <Profile />
+            </Route>
         
         <Route path='/resume'exact component={Resume} />
       </Switch>

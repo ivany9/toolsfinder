@@ -3,18 +3,22 @@ import { Link } from 'react-router-dom';
 
 import { useMutation } from '@apollo/client';
 import { ADD_TOOL} from '../utils/mutations';
+import {Redirect, useParams } from 'react-router-dom';
+
 
 import Auth from '../utils/auth';
 
-const AddTool = ({userId}) => {
-    console.log(userId);
+const AddTool = () => {
+    const { userId } = useParams();
+
+
+   console.log("valor de userID" + userId);
   const [formState, setFormState] = useState({
     name: '',
     category: '',
     description: '',
     dayprice:'',
-    hourpirce
-    :'',
+    hourpirce:'',
   });
   const [addTool, { error, data }] = useMutation(ADD_TOOL);
 

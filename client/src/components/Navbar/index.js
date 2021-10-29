@@ -25,11 +25,17 @@ const logout=(event)=>{
             </NavLink>
         <Bars />
         <NavMenu> 
-        {Auth.loggedIn()?(  
-        <Button className="btn btn-lg btn-light m-1" onClick={logout}>
-            logout</Button>  
-           
-        ):(
+        {Auth.loggedIn()?(
+          <>  
+          <NavLink to='/me'>
+          My pofile
+          </NavLink>
+          <NavLink to='/addtool' activeStyle>
+            AddTool 
+          </NavLink>
+        <Button className="btn btn-lg btn-light m-1" onClick={logout}>logout</Button>
+        </> 
+             ):(
           <>
           <NavLink className="btn btn-lg btn-primary m-2" to="/login">
            Login
@@ -39,9 +45,7 @@ const logout=(event)=>{
           </NavLink>
           </>
            )}
-          <NavLink to='/addtool' activeStyle>
-            AddTool 
-          </NavLink>
+         
           <NavLink to='/resume' activeStyle>
             Resume
           </NavLink>

@@ -92,7 +92,7 @@ const Signup = () => {
                   placeholder="xxx xxxx xxx"
                   name="phone"
                   type="text"
-                  value={formState.password}
+                  value={formState.phone}
                   onChange={handleChange}
                 />
                 <button

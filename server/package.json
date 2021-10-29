@@ -8,7 +8,6 @@
     "seed": "node seeds/seed.js",
     "start": "node server.js",
     "watch": "nodemon"
-    
   },
   "keywords": [],
   "author": "",
@@ -18,7 +17,7 @@
     "bcrypt": "^5.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
-    "graphql": "^15.6.1",
+    "graphql": "^15.7.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.9.9"
   },

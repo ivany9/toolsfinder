@@ -19,11 +19,13 @@ export const QUERY_SINGLE_USER = gql`
   query singleUser($userId: ID!) {
     user(userId: $userId) {
       _id
+      username
+      phone
       mytools{
         name
         _id
       }
-      phone
+      
     }
   }
 `;
@@ -49,6 +51,7 @@ export const QUERY_SINGLE_TOOL = gql`
     tool(toolId: $toolId) {user
       
       _id
+      name
       rent{
         name
         _id
@@ -71,7 +74,7 @@ export const QUERY_ME = gql`
   query me {
     me {
       _id
-      name
+      username
       
     }
   }
