@@ -1,24 +1,24 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-import { useMutation } from '@apollo/client';
-import { ADD_TOOL} from '../utils/mutations';
-import {Redirect, useParams } from 'react-router-dom';
+import { useMutation } from "@apollo/client";
+import { ADD_TOOL } from "../../utils/mutations";
+import { useParams } from "react-router-dom";
+import FileBase from "react-file-base64";
 
+import Auth from "../../utils/auth";
 
-import Auth from '../utils/auth';
+const AddTool = ({ userId }) => {
+  //const { userId } = useParams();
 
-const AddTool = () => {
-    const { userId } = useParams();
-
-
-   console.log("valor de userID" + userId);
+  console.log("valor de userID" + userId);
   const [formState, setFormState] = useState({
-    name: '',
-    category: '',
-    description: '',
-    dayprice:'',
-    hourpirce:'',
+    userId,
+    name: "",
+    category: "",
+    description: "",
+    dayprice: 0,
+    hourprice: 0,
   });
   const [addTool, { error, data }] = useMutation(ADD_TOOL);
 
@@ -35,11 +35,17 @@ const AddTool = () => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
 
     try {
+      const body = {
+        ...formState,
+        dayprice: Number(formState.dayprice),
+        hourprice: Number(formState.hourprice),
+      };
+      console.log(body);
+      console.log(typeof body.dayprice);
       const { data } = await addTool({
-        variables: {userId,...formState },
+        variables: { ...body },
       });
 
       Auth.login(data.addTool.token);
@@ -56,7 +62,7 @@ const AddTool = () => {
           <div className="card-body">
             {data ? (
               <p>
-                Success! You may now head{' '}
+                Success! You may now head{" "}
                 <Link to="/">back to the homepage.</Link>
               </p>
             ) : (
@@ -79,31 +85,38 @@ const AddTool = () => {
                 />
                 <input
                   className="form-input"
+                  type="text"
                   placeholder="description"
                   name="description"
-                  type="text"
                   value={formState.description}
                   onChange={handleChange}
                 />
-                 <input
+                <input
+                  type="number"
                   className="form-input"
                   placeholder="dayprice"
                   name="dayprice"
-                  type="Number"
                   value={formState.dayprice}
                   onChange={handleChange}
                 />
-                 <input
+                <input
+                  type="number"
                   className="form-input"
                   placeholder="hourprice"
                   name="hourprice"
-                  type="Number"
                   value={formState.hourprice}
                   onChange={handleChange}
                 />
+                {/* <FileBase
+                  type="file"
+                  multiple={false}
+                  onDone={({ base64 }) =>
+                    setFormState({ ...formState, image: base64 })
+                  }
+                /> */}
                 <button
                   className="btn btn-block btn-info"
-                  style={{ cursor: 'pointer' }}
+                  style={{ cursor: "pointer" }}
                   type="submit"
                 >
                   Submit

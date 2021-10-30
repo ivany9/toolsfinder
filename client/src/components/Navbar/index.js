@@ -30,7 +30,7 @@ const logout=(event)=>{
           <NavLink to='/me'>
           My pofile
           </NavLink>
-          <NavLink to='/addtool' activeStyle>
+          <NavLink to='/' activeStyle>
             AddTool 
           </NavLink>
         <Button className="btn btn-lg btn-light m-1" onClick={logout}>logout</Button>

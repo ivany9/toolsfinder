@@ -22,6 +22,8 @@
   },
   "homepage": "https://github.com/ivany9/toolsfinder#readme",
   "dependencies": {
-    "concurrently": "^6.3.0"
+    "body-parser": "^1.19.0",
+    "concurrently": "^6.3.0",
+    "react-file-base64": "^1.0.3"
   }
 }

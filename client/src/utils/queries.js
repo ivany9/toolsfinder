@@ -22,8 +22,13 @@ export const QUERY_SINGLE_USER = gql`
       username
       phone
       mytools{
-        name
         _id
+        name
+        category
+        description
+        status
+        dayprice
+        hourprice
       }
       
     }

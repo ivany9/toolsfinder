@@ -1,10 +1,13 @@
 import React from 'react';
 import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import AddTool from '../components/addTool';
 
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
+import myTooList from '../components/myToolList';
+import MyTools from '../components/myToolList/MyTools';
 
 const Profile = () => {
   const { userId } = useParams();
@@ -16,11 +19,13 @@ const Profile = () => {
     {
       variables: { userId:  userId },
     }
-  );
-      console.log(userId);
-  // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
-  const profile = data?.me || data?.user || {};
-  console.log(profile);
+    );
+    // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
+    const profile = data?.me || data?.user || {};
+    
+    const userTools = useQuery(QUERY_SINGLE_USER, {
+      variables: {userId: profile._id}
+    })
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id ===  userId) {
@@ -39,13 +44,29 @@ const Profile = () => {
       </h4>
     );
   }
-
+    
+     console.log(profile._id);
+ 
   return(
+         
+               
+   <main>
+   <div className="flex-row justify-center">
+      <div className="col-12 col-md-10 my-3">
+            
+    
 
-    <div>
-          hola esta funcionando
-        </div>
+            <h2>My Tool Box</h2>
+              {/* <myTooList /> */}
+              <AddTool  userId={profile._id}/>
+             <MyTools userTools={userTools.data?.user} />
+             
+            </div>
 
+    </div>
+ </main>
+  )
+};
       
 
 
@@ -62,9 +83,6 @@ const Profile = () => {
 
 
 
-  )
-
-
-  };
+  
 
 export default Profile;

@@ -2,7 +2,6 @@ import React from 'react';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './Pages/login';
-import AddTool from './Pages/addtool';
 import Home from './Pages/home';
 import Profile from './Pages/profile';
 import Resume from './Pages/resume';
@@ -60,8 +59,11 @@ function App() {
         <Signup/>
         </Route>
         <Route exact path="/profile/:userId">
-              <Profile />
-            </Route>
+          <Profile />
+        </Route>
+        {/* <Route exact path="/addtool">
+          <AddTool/>
+        </Route> */}
         
         <Route path='/resume'exact component={Resume} />
       </Switch>
