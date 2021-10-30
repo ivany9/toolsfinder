@@ -32,10 +32,17 @@ const AddTool = ({ userId }) => {
     });
   };
 
+ //////////////////////////////////////////////
+ function refreshPage() {
+  window.location.reload(false);
+}
+ ///////////////////////////////////////
+
+
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+     
     try {
       const body = {
         ...formState,
@@ -61,9 +68,12 @@ const AddTool = ({ userId }) => {
           <h4 className="card-header bg-dark text-light p-2">ADD TOOL</h4>
           <div className="card-body">
             {data ? (
+                 
               <p>
-                Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
+                
+                  
+                Success! You have a new Tool{" "}
+               
               </p>
             ) : (
               <form onSubmit={handleFormSubmit}>

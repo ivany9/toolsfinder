@@ -6,7 +6,6 @@ import AddTool from '../components/addTool';
 import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
 
 import Auth from '../utils/auth';
-import myTooList from '../components/myToolList';
 import MyTools from '../components/myToolList/MyTools';
 
 const Profile = () => {
