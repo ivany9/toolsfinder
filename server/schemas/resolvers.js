@@ -2,9 +2,16 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Tool } = require('../models');
 const { Tools }= require('../models');
 const { signToken } = require('../utils/auth');
+const {
+  GraphQLUpload,
+  graphqlUploadExpress, // A Koa implementation is also exported.
+} = require('graphql-upload');
 
 
 const resolvers = {
+
+  Upload: GraphQLUpload,
+  
   Query: {
    
      tools:async()=>{
@@ -87,8 +94,8 @@ const resolvers = {
         return await User.create({username, email, password,postcode,phone})  
      
     },
-     addToolt: async (parent,{userId,name,category,description,dayprice,hourprice})=>{
-       const tool=await Tool.create({name,category,description,dayprice,hourprice})
+     addToolt: async (parent,{userId,name,category,description,dayprice,hourprice,image})=>{
+       const tool=await Tool.create({name,category,description,dayprice,hourprice,image})
        return User.findOneAndUpdate(
          {_id:userId},
          {
@@ -143,10 +150,26 @@ const resolvers = {
        removeRent: async(parent,{toolId})=>{
         console.log(toolId); 
         return Tool.findOneAndUpdate({_id:toolId},{rent:null})
-       }   
+       } ,  
         
       
-        
+       UploadFile: async (parent, { file }) => {
+        const { createReadStream, filename, mimetype, encoding } = await file;
+  
+        // Invoking the `createReadStream` will return a Readable Stream.
+        // See https://nodejs.org/api/stream.html#stream_readable_streams
+        const stream = createReadStream();
+        const pathName = path.join(__dirname, '..', '..', `client/public/images/${filename}`);
+        // This is purely for demonstration purposes and will overwrite the
+        // local-file-output.txt in the current working directory on EACH upload.
+        const out = require('fs').createWriteStream(pathName);
+        stream.pipe(out);
+        //await finished(out);
+  
+        return {url:pathName};
+      },
+    },
+  };
     
              
 
@@ -158,11 +181,7 @@ const resolvers = {
 
     
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
-  }
-
-}
-
-
+  
 
 
 

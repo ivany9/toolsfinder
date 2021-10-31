@@ -14,8 +14,8 @@ export const ADD_USER = gql`
 `;
 
 export const ADD_TOOL = gql`
-  mutation addToolt($userId: ID!,$name:String!,$category:String!,$description:String!,$dayprice:Int!,$hourprice:Int!)  {
-    addToolt(userId: $userId,name:$name,category:$category,description:$description,dayprice:$dayprice,hourprice:$hourprice) {
+  mutation addToolt($userId: ID!,$name:String!,$category:String!,$description:String!,$dayprice:Int!,$hourprice:Int!,$image:String!)  {
+    addToolt(userId: $userId,name:$name,category:$category,description:$description,dayprice:$dayprice,hourprice:$hourprice,image:$image) {
       _id
       name
       
@@ -101,6 +101,15 @@ export const UPDATE_DUERENT = gql`
       duerent
       _id
       
+    }
+  }
+`;
+
+export const UPLOAD_FILE = gql`
+mutation UploadFile($file: Upload!) {
+  UploadFile(file:$Upload){
+      
+      url
     }
   }
 `;

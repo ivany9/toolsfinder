@@ -1,5 +1,9 @@
 const express = require("express");
 const { ApolloServer } = require("apollo-server-express");
+const {
+  GraphQLUpload,
+  graphqlUploadExpress, // A Koa implementation is also exported.
+} = require('graphql-upload');
 const path = require("path");
 const bodyParser = require("body-parser")
 const { typeDefs, resolvers } = require("./schemas");
@@ -17,14 +21,12 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
-app.use(express.urlencoded({ extended: true, parameterLimit: 1000000 }));
-app.use(
-  express.json({
-    limit: "50mb",
-  })
-);
-// app.use(bodyParser.json({limit: '50mb'}))
-// app.use(bodyParser.urlencoded({limit: '50mb', parameterLimit: 100000, extended: true}))
+app.use(express.urlencoded({ extended: true }))
+
+app.use(express.static("public"));
+app.use(graphqlUploadExpress());
+
+
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../client/build")));

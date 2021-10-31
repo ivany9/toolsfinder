@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-import { useMutation } from "@apollo/client";
-import { ADD_TOOL } from "../../utils/mutations";
+import { useMutation} from "@apollo/client";
+import { ADD_TOOL} from "../../utils/mutations";
 import { useParams } from "react-router-dom";
 import FileBase from "react-file-base64";
 
 import Auth from "../../utils/auth";
+
+
+//UPLOAD_FILE
+
+
 
 const AddTool = ({ userId }) => {
   //const { userId } = useParams();
@@ -19,6 +24,7 @@ const AddTool = ({ userId }) => {
     description: "",
     dayprice: 0,
     hourprice: 0,
+    image:'',
   });
   const [addTool, { error, data }] = useMutation(ADD_TOOL);
 

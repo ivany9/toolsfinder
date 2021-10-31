@@ -1,6 +1,14 @@
 const {gql } = require('apollo-server-express');
+const {
+  GraphQLUpload,
+  graphqlUploadExpress, // A Koa implementation is also exported.
+} = require('graphql-upload');
+
+//scalar Upload va en la linea 10
 
 const typeDefs = gql`
+
+
   type User {
     _id: ID 
     email:String
@@ -21,6 +29,10 @@ const typeDefs = gql`
     hourprice:Int
     duerent:String
     rent:User
+    }
+   
+    type File {
+      url: String!
     }
 
   
@@ -48,7 +60,7 @@ const typeDefs = gql`
       addUser(username:String!,email:String,password:String!,postcode:String!,phone:String!):Auth
       addUsert(username:String!,email:String,password:String!,postcode:String!,phone:String!):User
       login(email:String!,password:String!):Auth
-      addToolt(userId:ID!,name:String!,category:String!,description:String!,dayprice:Int!,hourprice:Int!):Tool
+      addToolt(userId:ID!,name:String!,category:String!,description:String!,dayprice:Int!,hourprice:Int!,image:String):Tool
       rentoolt(toolId:ID!,username:String):Tool
       removeTool(toolId:ID!):Tool
       updatedayprice(toolId:ID!,dayprice:Int):Tool
@@ -56,6 +68,8 @@ const typeDefs = gql`
       updateStatus(toolId:ID!,status:Boolean):Tool
       adddueRent(toolId:ID!,duerent:String):Tool
       removeRent(toolId:ID!):Tool
+      UploadFile(file: Upload!): File!
+    
   
     }
 

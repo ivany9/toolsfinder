@@ -27,16 +27,6 @@ const Profile = () => {
     })
     
    
-    ////////////////////////////// QUERY_SINGLE_TOOL /////////////////////////////////
-    // const rentTools=useQuery(QUERY_SINGLE_TOOL ,{
-    //    variables:{toolId:        }
-    // }
-       
-
-    // )
-    
-    
-    // const idtools=data?.tool
 
 
 
