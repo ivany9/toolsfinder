@@ -9,6 +9,9 @@ export const QUERY_USERS = gql`
       mytools{
         _id
         name
+        rent{
+           username  
+            }
 
       }
     }
@@ -53,7 +56,8 @@ export const QUERY_TOOLS = gql`
 
 export const QUERY_SINGLE_TOOL = gql`
   query singleTool($tooId: ID!) {
-    tool(toolId: $toolId) {user
+    tool(toolId: $toolId) 
+    {
       
       _id
       name
@@ -68,6 +72,27 @@ export const QUERY_SINGLE_TOOL = gql`
   }
 `;
 
+
+export const QUERY_MYTOOLS = gql`
+  query mytools($userId: ID!) {
+    mytools(userId: $userId) {
+      
+      username
+      
+      mytools{
+        _id
+        name
+        status
+        rent{
+         username
+          phone
+        
+             }
+        }
+    }
+  }
+
+`;
 
 
 

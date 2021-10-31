@@ -18,6 +18,7 @@ const ToolList = ({ tools, title }) => {
                   {profile.name} <br />
                   {profile.description}<br/>
                   {profile.category}<br/>
+                  {profile.status ? "Status Rented" : "Status free"}<br/>
                   <p>Day  rent Price {profile.dayprice}<br/>
                      Hour  rent Price {profile.hourprice}</p><br/>
                 </h4>

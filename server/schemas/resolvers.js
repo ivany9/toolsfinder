@@ -13,8 +13,30 @@ const resolvers = {
    },
    
 
+      mytools:async(parent,{userId})=>{
+        return  User.findOne({_id:userId}).populate('mytools').populate({
+          path:'mytools',
+          populate:'rent'
+        });
+      },
+        
+      myrent:async(parent,{userId})=>{
+        return  User.findOne({_id:userId}).populate('mytools').populate({
+          path:'mytools',
+          populate:'rent'
+        });
+      },
+      
+      
+
+      
+
     users:async()=>{
-       return await User.find({}).populate('mytools');        
+       return await User.find({}).populate('mytools').populate({
+        path:'mytools',
+        populate:'rent'
+
+       });        
       
     } ,
 
@@ -123,7 +145,7 @@ const resolvers = {
         return Tool.findOneAndUpdate({_id:toolId},{rent:null})
        }   
         
-
+      
         
     
              

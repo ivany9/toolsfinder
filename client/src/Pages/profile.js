@@ -3,14 +3,13 @@ import { Redirect, useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import AddTool from '../components/addTool';
 
-import { QUERY_SINGLE_USER, QUERY_ME } from '../utils/queries';
+import { QUERY_SINGLE_USER, QUERY_ME,QUERY_MYTOOLS } from '../utils/queries';
 
 import Auth from '../utils/auth';
 import MyTools from '../components/myToolList/MyTools';
 
 const Profile = () => {
   const { userId } = useParams();
-  console.log(userId);
   
   // If there is no `profileId` in the URL as a parameter, execute the `QUERY_ME` query instead for the logged in user's information
   const { loading, data } = useQuery(
@@ -21,10 +20,28 @@ const Profile = () => {
     );
     // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
     const profile = data?.me || data?.user || {};
-    
-    const userTools = useQuery(QUERY_SINGLE_USER, {
+     console.log("estes es resultado"+profile._id); 
+
+    const userTools = useQuery(QUERY_MYTOOLS, {
       variables: {userId: profile._id}
     })
+    
+   
+    ////////////////////////////// QUERY_SINGLE_TOOL /////////////////////////////////
+    // const rentTools=useQuery(QUERY_SINGLE_TOOL ,{
+    //    variables:{toolId:        }
+    // }
+       
+
+    // )
+    
+    
+    // const idtools=data?.tool
+
+
+
+
+    //////////////////////////////////////////////////////////////////////////////////
 
   // Use React Router's `<Redirect />` component to redirect to personal profile page if username is yours
   if (Auth.loggedIn() && Auth.getProfile().data._id ===  userId) {
@@ -44,7 +61,7 @@ const Profile = () => {
     );
   }
     
-     console.log(profile._id);
+    // console.log(profile._id);
  
   return(
          
@@ -58,7 +75,7 @@ const Profile = () => {
             <h2>My Tool Box</h2>
               {/* <myTooList /> */}
               <AddTool  userId={profile._id}/>
-             <MyTools userTools={userTools.data?.user} />
+             <MyTools userTools={userTools.data?.mytools} />
              
             </div>
 

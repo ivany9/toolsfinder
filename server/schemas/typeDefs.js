@@ -35,6 +35,8 @@ const typeDefs = gql`
     tools:[Tool]
     tool(toolId:ID!):Tool
     me: User
+    mytools(userId:ID!):User
+    myrent(userId:ID!):User
    
   }
         
