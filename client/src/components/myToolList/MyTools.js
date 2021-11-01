@@ -25,6 +25,7 @@ const MyTools = (props) => {
                             
                             <button>Update</button>
                             <button>Delete</button>
+                            <button>Status</button>
                         </div>
                     )
                 })}

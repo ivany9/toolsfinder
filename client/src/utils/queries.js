@@ -109,3 +109,47 @@ export const QUERY_ME = gql`
     }
   }
 `;
+
+export const LOCATION = gql`
+  query  location($postcode:String!){
+        location(postcode:$postcode){
+     username
+     postcode 
+     phone
+      mytools{ 
+        name
+        category
+        description
+        status
+        dayprice
+        hourprice
+      
+
+            } 
+    }
+  }
+`;
+
+export const CATEGORY = gql`
+  query  category($category:String!){
+        category(category:$category){
+  
+        name
+        category
+        description
+        status
+        dayprice
+        hourprice
+        rent{
+             username
+             phone 
+             postcode  
+ 
+
+        }
+      
+
+            } 
+    }
+  
+`;

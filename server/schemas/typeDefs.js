@@ -1,15 +1,12 @@
-const {gql } = require('apollo-server-express');
-const {
-  GraphQLUpload,
-  graphqlUploadExpress, // A Koa implementation is also exported.
-} = require('graphql-upload');
+const {gql,ApolloServer } = require('apollo-server-express');
+const {GraphQLUpload}= require('graphql-upload');
 
-//scalar Upload va en la linea 10
+//scalar Upload 
 
 const typeDefs = gql`
 
 
-scalar Upload
+
 
   type User {
     _id: ID 
@@ -21,6 +18,8 @@ scalar Upload
     mytools:[Tool]
    }
 
+   
+
    type Tool{
     _id: ID
     name:String
@@ -31,6 +30,7 @@ scalar Upload
     hourprice:Int
     duerent:String
     rent:User
+    image:String
     }
    
     type File {
@@ -51,7 +51,8 @@ scalar Upload
     me: User
     mytools(userId:ID!):User
     myrent(userId:ID!):User
-   
+    location(postcode:String!):[User]
+    category(category:String):[Tool]
   }
         
 
@@ -70,7 +71,7 @@ scalar Upload
       updateStatus(toolId:ID!,status:Boolean):Tool
       adddueRent(toolId:ID!,duerent:String):Tool
       removeRent(toolId:ID!):Tool
-      UploadFile(file: Upload!): File!
+      UploadFile(file: Upload!): File
     
   
     }

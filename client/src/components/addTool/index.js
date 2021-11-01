@@ -5,11 +5,9 @@ import { ADD_TOOL} from "../../utils/mutations";
 import { useParams } from "react-router-dom";
 import FileBase from "react-file-base64";
 import Upload from './UploadFile';
+//import Picker from '../../components/picker/picker'
 
 import Auth from "../../utils/auth";
-
-
-//UPLOAD_FILE
 
 
 

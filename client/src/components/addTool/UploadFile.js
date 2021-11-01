@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useMutation} from "@apollo/client";
+import { useMutation,gql} from "@apollo/client";
 import {UPLOAD_FILE } from "../../utils/mutations";
 
 

@@ -17,9 +17,9 @@ const mongoose = require('mongoose');
 
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/toolsfinder', {
   useNewUrlParser: true,
- // useUnifiedTopology: true,
+ useUnifiedTopology: true,
   useCreateIndex: true,
- // useFindAndModify: false,
+  useFindAndModify: false,
 });
 
 module.exports = mongoose.connection;

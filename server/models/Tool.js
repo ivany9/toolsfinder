@@ -38,9 +38,9 @@ const toolSchema = new Schema({
     default: Date.now,
    
   },
-  // image: {
-  //   type: String,
-  // },
+  image: {
+    type: String,
+  },
 
   rent: {
     

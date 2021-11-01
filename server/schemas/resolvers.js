@@ -2,6 +2,7 @@ const { AuthenticationError } = require('apollo-server-express');
 const { User, Tool } = require('../models');
 const { Tools }= require('../models');
 const { signToken } = require('../utils/auth');
+const path = require('path');
 const {
   GraphQLUpload,
   graphqlUploadExpress, // A Koa implementation is also exported.
@@ -34,7 +35,18 @@ const resolvers = {
         });
       },
       
-      
+      location:async(parent,{postcode})=>{
+    
+        return  User.find({postcode}).populate('mytools')
+        
+      },
+
+      category:async(parent,{category})=>{
+    
+        return  Tool.find({category}).populate('rent')
+        
+      },
+        
 
       
 
