@@ -17,6 +17,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import {createUploadLink} from 'apollo-upload-client';
 
+
 const httpLink = createHttpLink({
   uri: '/graphql',
 });
@@ -67,9 +68,8 @@ function App() {
         </Route> */}
         
         <Route exact path='/resume'>
-          <div>
           <p>hola</p>
-          </div>
+
           </Route>
       </Switch>
     </Router>
