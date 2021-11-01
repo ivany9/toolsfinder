@@ -8,10 +8,33 @@ const {
   graphqlUploadExpress, // A Koa implementation is also exported.
 } = require('graphql-upload');
 
+const getFileDetails = file => 
+  new Promise (async (resolve, reject) => {
+    const {filename, mimetype, createReadStream} = await file
+    console.log(file, "form backend")
+
+    let filesize = 0
+    let stream = createReadStream()
+
+    stream.on('data', chunk => {
+      filesize += chunk.length
+    })
+
+    stream.once('end', () => 
+    resolve({
+      filename,
+      mimetype,
+      filesize
+    }))
+
+    stream.on('error', reject)
+  })
+
 
 const resolvers = {
 
-  Upload: GraphQLUpload,
+  FileUpload: GraphQLUpload,
+  // Upload: GraphQLUpload,
   
   Query: {
    
@@ -29,7 +52,7 @@ const resolvers = {
       },
         
       myrent:async(parent,{userId})=>{
-        return  User.findOne({_id:userId}).populate('mytools').populate({
+        return  Tool.find({}).populate('mytools').populate({
           path:'mytools',
           populate:'rent'
         });
@@ -180,8 +203,32 @@ const resolvers = {
   
         return {url:pathName};
       },
+
+      // singleUpload: async (parent, {file}) => getFileDetails(file)
+      singleUpload: async (parent, {file}) =>{
+        const {filename, mimetype, createReadStream} = await file
+        console.log(file, "form backend")
+    
+        let filesize = 0
+        let stream = createReadStream()
+    
+        stream.on('data', chunk => {
+          filesize += chunk.length
+        })
+    
+        // stream.once('end', () => 
+        // resolve({
+        //   filename,
+        //   mimetype,
+        //   filesize
+        // }))
+    
+        stream.on('error', console.log("error"))
+
+        return  {filename, mimetype, createReadStream}
+      }
     },
-  };
+  }
     
              
 
