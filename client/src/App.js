@@ -66,7 +66,11 @@ function App() {
           <AddTool/>
         </Route> */}
         
-        <Route path='/resume'exact component={Resume} />
+        <Route exact path='/resume'>
+          <div>
+          <p>hola</p>
+          </div>
+          </Route>
       </Switch>
     </Router>
      </div>
