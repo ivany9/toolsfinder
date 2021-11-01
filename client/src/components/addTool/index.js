@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { useMutation} from "@apollo/client";
-import { ADD_TOOL} from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
+import { ADD_TOOL } from "../../utils/mutations";
 import { useParams } from "react-router-dom";
 import FileBase from "react-file-base64";
-import Upload from './UploadFile';
+import Upload from "./UploadFile";
 //import Picker from '../../components/picker/picker'
 
 import Auth from "../../utils/auth";
 
-
-
-const AddTool = ({ userId }) => {
+const AddTool = ({ userId, refetch }) => {
   //const { userId } = useParams();
 
   const [formState, setFormState] = useState({
@@ -21,7 +19,7 @@ const AddTool = ({ userId }) => {
     description: "",
     dayprice: 0,
     hourprice: 0,
-    image:'',
+    image: "",
   });
   const [addTool, { error, data }] = useMutation(ADD_TOOL);
 
@@ -35,21 +33,20 @@ const AddTool = ({ userId }) => {
     });
   };
 
- //////////////////////////////////////////////
- const ImageUpload = (image)=>{
-  setFormState({
-    ...formState,
-    image: image.image ? image.image : formState.image
-  })
-}
+  //////////////////////////////////////////////
+  const ImageUpload = (image) => {
+    setFormState({
+      ...formState,
+      image: image.image ? image.image : formState.image,
+    });
+  };
 
- ///////////////////////////////////////
-
+  ///////////////////////////////////////
 
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-     
+
     try {
       const body = {
         ...formState,
@@ -62,7 +59,8 @@ const AddTool = ({ userId }) => {
         variables: { ...body },
       });
 
-      console.log("formulario que esta llenando"+formState);
+      console.log("formulario que esta llenando" + formState);
+      refetch()
 
       Auth.login(data.addTool.token);
     } catch (e) {
@@ -77,13 +75,7 @@ const AddTool = ({ userId }) => {
           <h4 className="card-header bg-dark text-light p-2">ADD TOOL</h4>
           <div className="card-body">
             {data ? (
-                 
-              <p>
-                
-                  
-                Success! You have a new Tool{" "}
-               
-              </p>
+              <p>Success! You have a new Tool </p>
             ) : (
               <form onSubmit={handleFormSubmit}>
                 <input
@@ -126,10 +118,10 @@ const AddTool = ({ userId }) => {
                   value={formState.hourprice}
                   onChange={handleChange}
                 />
-                 <Upload
+                {/* <Upload
                    ImageUpload={ImageUpload}
                   
-                /> 
+                />  */}
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: "pointer" }}

@@ -8,6 +8,8 @@ import {
 } from './NavbarElements';
 import Button from 'react-bootstrap/Button';
 import Auth from '../../utils/auth';
+import Select from '../../components/picker/index'
+import Autocomplete from '../autocomplete';
 
 const Navbar = () => {
 const logout=(event)=>{
@@ -25,6 +27,8 @@ const logout=(event)=>{
             </NavLink>
         <Bars />
         <NavMenu> 
+          <Autocomplete/>
+          <Select/>
         {Auth.loggedIn()?(
           <>  
           <NavLink to='/me'>

@@ -1,11 +1,10 @@
 const {gql,ApolloServer } = require('apollo-server-express');
 const {GraphQLUpload}= require('graphql-upload');
 
-//scalar Upload 
 
 const typeDefs = gql`
 
-
+scalar FileUpload 
 
 
   type User {
@@ -34,7 +33,10 @@ const typeDefs = gql`
     }
    
     type File {
-      url: String!
+     # url: String!
+     filename: String!
+     mimetype: String!
+     encoding: String!
     }
 
   
@@ -71,8 +73,8 @@ const typeDefs = gql`
       updateStatus(toolId:ID!,status:Boolean):Tool
       adddueRent(toolId:ID!,duerent:String):Tool
       removeRent(toolId:ID!):Tool
-      UploadFile(file: Upload!): File
-    
+       UploadFile(file: FileUpload!): File
+      singleUpload(file: Upload!): File!
   
     }
 

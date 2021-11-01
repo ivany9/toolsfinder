@@ -107,11 +107,26 @@ export const UPDATE_DUERENT = gql`
 `;
 
 export const UPLOAD_FILE = gql`
-mutation UploadFile($file: Upload!) {
+mutation UploadFile($file: FileUpload!) {
   UploadFile(file:$file){
       
-      url
+      filename
+    }
+  }
+`;
+export const SINGLE_UPLOAD = gql`
+mutation singleUpload($file: Upload!) {
+  singleUpload(file:$file){
+      filename
     }
   }
 `;
 
+
+export const REMOVE_RENT = gql`
+mutation removeRent($toolId: ID!) {
+  removeRent(toolId:$toolId){
+      _id
+    }
+  }
+`;

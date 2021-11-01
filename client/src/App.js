@@ -16,9 +16,11 @@ import {
 } from '@apollo/client';
 import { setContext } from '@apollo/client/link/context';
 import {createUploadLink} from 'apollo-upload-client';
+import Autocomplete from './components/autocomplete';
 
 
-const httpLink = createHttpLink({
+
+const httpLink = createUploadLink({
   uri: '/graphql',
 });
 
@@ -68,7 +70,7 @@ function App() {
         </Route> */}
         
         <Route exact path='/resume'>
-          <p>hola</p>
+          <Autocomplete/>
 
           </Route>
       </Switch>
