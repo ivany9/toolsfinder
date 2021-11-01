@@ -107,7 +107,7 @@ export const UPDATE_DUERENT = gql`
 
 export const UPLOAD_FILE = gql`
 mutation UploadFile($file: Upload!) {
-  UploadFile(file:$Upload){
+  UploadFile(file:$file){
       
       url
     }

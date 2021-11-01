@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
 import { useMutation} from "@apollo/client";
 import { ADD_TOOL} from "../../utils/mutations";
 import { useParams } from "react-router-dom";
 import FileBase from "react-file-base64";
+import Upload from './UploadFile';
 
 import Auth from "../../utils/auth";
 
@@ -16,7 +16,6 @@ import Auth from "../../utils/auth";
 const AddTool = ({ userId }) => {
   //const { userId } = useParams();
 
-  console.log("valor de userID" + userId);
   const [formState, setFormState] = useState({
     userId,
     name: "",
@@ -39,9 +38,13 @@ const AddTool = ({ userId }) => {
   };
 
  //////////////////////////////////////////////
- function refreshPage() {
-  window.location.reload(false);
+ const ImageUpload = (image)=>{
+  setFormState({
+    ...formState,
+    image: image.image ? image.image : formState.image
+  })
 }
+
  ///////////////////////////////////////
 
 
@@ -60,6 +63,8 @@ const AddTool = ({ userId }) => {
       const { data } = await addTool({
         variables: { ...body },
       });
+
+      console.log("formulario que esta llenando"+formState);
 
       Auth.login(data.addTool.token);
     } catch (e) {
@@ -123,13 +128,10 @@ const AddTool = ({ userId }) => {
                   value={formState.hourprice}
                   onChange={handleChange}
                 />
-                {/* <FileBase
-                  type="file"
-                  multiple={false}
-                  onDone={({ base64 }) =>
-                    setFormState({ ...formState, image: base64 })
-                  }
-                /> */}
+                 <Upload
+                   ImageUpload={ImageUpload}
+                  
+                /> 
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: "pointer" }}

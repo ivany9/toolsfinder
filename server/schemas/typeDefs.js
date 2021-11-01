@@ -9,6 +9,8 @@ const {
 const typeDefs = gql`
 
 
+scalar Upload
+
   type User {
     _id: ID 
     email:String
