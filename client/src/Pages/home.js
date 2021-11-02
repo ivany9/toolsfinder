@@ -1,14 +1,15 @@
-import React from 'react';
-import { useQuery } from '@apollo/client';
+import React from "react";
+import { useQuery } from "@apollo/client";
 
+import ToolList from "../components/Profile";
 
-import ToolList from '../components/Profile';
+import { CATEGORY, QUERY_TOOLS } from "../utils/queries";
 
-import { QUERY_TOOLS } from '../utils/queries';
-
-const Home = () => {
-  const { loading, data,refetch } = useQuery(QUERY_TOOLS);
+const Home = ({ category }) => {
+  const { loading, data, refetch } = useQuery(QUERY_TOOLS);
   const tools = data?.tools || [];
+  const filteredToolsQuery = useQuery(CATEGORY, { variables: { category } });
+  const filteredTools = filteredToolsQuery.data?.category || []
 
   return (
     <main>
@@ -17,10 +18,7 @@ const Home = () => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ToolList
-              tools={tools} 
-              title="Tools for you!!!!"
-            />
+            <ToolList tools={category.length ? filteredTools : tools} title="Tools for you!!!!" />
           )}
         </div>
       </div>

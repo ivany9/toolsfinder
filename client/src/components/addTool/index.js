@@ -5,6 +5,7 @@ import { ADD_TOOL } from "../../utils/mutations";
 import { useParams } from "react-router-dom";
 import FileBase from "react-file-base64";
 import Upload from "./UploadFile";
+import Select from '../../components/picker/index'
 //import Picker from '../../components/picker/picker'
 
 import Auth from "../../utils/auth";
@@ -86,14 +87,15 @@ const AddTool = ({ userId, refetch }) => {
                   value={formState.name}
                   onChange={handleChange}
                 />
-                <input
+                {/* <input
                   className="form-input"
                   placeholder="Category"
                   name="category"
                   type="text"
                   value={formState.category}
                   onChange={handleChange}
-                />
+                /> */}
+                <Select setFormState={setFormState} formState={formState} />
                 <input
                   className="form-input"
                   type="text"
@@ -118,10 +120,10 @@ const AddTool = ({ userId, refetch }) => {
                   value={formState.hourprice}
                   onChange={handleChange}
                 />
-                <Upload
+                {/* <Upload
                    ImageUpload={ImageUpload}
                   
-                /> 
+                />  */}
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: "pointer" }}

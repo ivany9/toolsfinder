@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './Pages/login';
@@ -43,15 +43,16 @@ const client = new ApolloClient({
 });
 
 function App() {
+  const [formState, setFormState] = useState({category: ""})
   return (
     <ApolloProvider client={client}>
     <div className="page-contanier">
          <div className="page-wrap">
     <Router>
-      <Navbar />
+      <Navbar formState={formState} setFormState={setFormState} />
       <Switch>
         <Route exact  path='/'>
-          <Home/>
+          <Home category={formState.category}/>
           </Route>
         <Route exact path='/login'>
         <Login/>

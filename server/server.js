@@ -19,12 +19,9 @@ const server = new ApolloServer({
   context: authMiddleware,
 });
 
-app.use(graphqlUploadExpress({
-  maxFileSize: 10000000,
-  maxFiles: 10
-}));
+app.use(graphqlUploadExpress());
 
-server.applyMiddleware({ app, path: '/graphql'});     //////////path: '/graphql'
+server.applyMiddleware({ app});     //////////path: '/graphql'
 
 app.use(express.urlencoded({ extended: true }))
 
