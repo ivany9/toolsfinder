@@ -6,21 +6,21 @@ import { RENT_TOOL } from "../../utils/mutations";
 
 const ToolList = ({ tools, title }) => {
   const [rentToolMutation] = useMutation(RENT_TOOL);
-  const username = Auth.getProfile().data.username;
-  if (!tools.length) {
-    return <h3>No Profiles Yet</h3>;
-  }
+  // const username = Auth.getProfile().data.username;
+  // if (!tools.length) {
+  //   return <h3>No Profiles Yet</h3>;
+  // }
 
-  const rentTool = async (id) => {
-    try {
-      const { data } = await rentToolMutation({
-        variables: { toolId: id, username },
-      });
-      console.log(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const rentTool = async (id) => {
+  //   try {
+  //     const { data } = await rentToolMutation({
+  //       variables: { toolId: id, username },
+  //     });
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+
   return (
     <div>
       <h3 className="text-primary">{title}</h3>
@@ -44,14 +44,14 @@ const ToolList = ({ tools, title }) => {
                   </p>
                   <br />
                 </h4>
-                {Auth.loggedIn() && (
+                {/* {Auth.loggedIn() && (
                   <button
                     disabled={profile.rent}
                     onClick={() => rentTool(profile._id)}
                   >
                     {profile.rent ? "Rented" : "Rent"}
                   </button>
-                )}
+                )} */}
 
                 {/* 
                <Link

@@ -52,7 +52,7 @@ function App() {
       <Navbar formState={formState} setFormState={setFormState} />
       <Switch>
         <Route exact  path='/'>
-          <Home category={formState.category}/>
+         <Home category={formState.category}/>
           </Route>
         <Route exact path='/login'>
         <Login/>

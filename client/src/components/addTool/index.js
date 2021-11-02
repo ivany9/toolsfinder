@@ -87,14 +87,7 @@ const AddTool = ({ userId, refetch }) => {
                   value={formState.name}
                   onChange={handleChange}
                 />
-                {/* <input
-                  className="form-input"
-                  placeholder="Category"
-                  name="category"
-                  type="text"
-                  value={formState.category}
-                  onChange={handleChange}
-                /> */}
+                
                 <Select setFormState={setFormState} formState={formState} />
                 <input
                   className="form-input"
