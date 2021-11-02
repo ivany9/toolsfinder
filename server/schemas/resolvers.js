@@ -157,7 +157,8 @@ const resolvers = {
 
           myrent: async(parent,{toolId,userId})=>{
           const tool=await Tool.findOne({_id:toolId});
-          console.log(tool);
+          console.log("herramienta"+tool._id);
+          console.log("usuario"+userId);
           return User.findOneAndUpdate(
              {_id:userId},
              {

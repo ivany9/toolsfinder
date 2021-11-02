@@ -1,12 +1,13 @@
 import React from 'react';
 import { useQuery } from '@apollo/client';
 
+
 import ToolList from '../components/Profile';
 
 import { QUERY_TOOLS } from '../utils/queries';
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_TOOLS);
+  const { loading, data,refetch } = useQuery(QUERY_TOOLS);
   const tools = data?.tools || [];
 
   return (
@@ -17,7 +18,7 @@ const Home = () => {
             <div>Loading...</div>
           ) : (
             <ToolList
-              tools={tools}
+              tools={tools} 
               title="Tools for you!!!!"
             />
           )}
