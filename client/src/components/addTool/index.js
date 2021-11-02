@@ -118,10 +118,10 @@ const AddTool = ({ userId, refetch }) => {
                   value={formState.hourprice}
                   onChange={handleChange}
                 />
-                {/* <Upload
+                <Upload
                    ImageUpload={ImageUpload}
                   
-                />  */}
+                /> 
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: "pointer" }}

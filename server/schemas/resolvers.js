@@ -3,6 +3,7 @@ const { User, Tool } = require('../models');
 const { Tools }= require('../models');
 const { signToken } = require('../utils/auth');
 const path = require('path');
+const fs =require('fs');
 const {
   GraphQLUpload,
   graphqlUploadExpress, // A Koa implementation is also exported.
@@ -33,7 +34,7 @@ const getFileDetails = file =>
 
 const resolvers = {
 
-  FileUpload: GraphQLUpload,
+  FUpload: GraphQLUpload,
   // Upload: GraphQLUpload,
   
   Query: {
@@ -42,6 +43,17 @@ const resolvers = {
       return await Tool.find({}).populate('rent');        
      
    },
+
+  //  toolessmy:async(parent,{userId})=>{
+  //   return await Tool.find({ mytools:{$ne: userId}})        
+  //  },
+         // pendiente
+
+
+
+
+     ///todas las tools menos la de mi id///////////////////////
+
    
 
       mytools:async(parent,{userId})=>{
@@ -51,10 +63,17 @@ const resolvers = {
         });
       },
         
+      //////////////////////////////////////////////////////////////////////
       myrentt:async(parent,{userId})=>{
-        return  User.find({_id:userId}).populate('myrents')
+        return await Tool.find({rent:userId})
         },    
-      
+      /////////////////////////////////////////////////////////////////////
+
+    
+
+
+
+
       location:async(parent,{postcode})=>{
     
         return  User.find({postcode}).populate('mytools')
@@ -121,7 +140,7 @@ const resolvers = {
     }, 
     
     //addUser test
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     addUsert: async (parent, { username, email, password,postcode,phone})=>{
         return await User.create({username, email, password,postcode,phone})  
      
@@ -154,6 +173,25 @@ const resolvers = {
             }
         )
           },
+
+    ///////////////////////////////////////////////////////////////////////////////
+    ////////renta la tool con una nuevo valor de esquema      
+          rentoolp: async(parent,{toolId,userId})=>{
+            const user=await User.findOne({_id:userId});
+            console.log(user);
+             return Tool.findOneAndUpdate(
+                {_id:toolId},
+                {
+                  $addToSet:{rent:user._id}
+                  
+                 },
+                 {
+                   new: true,
+                   runValidators: true,
+                   
+                 }
+             )
+               },
 
           myrent: async(parent,{toolId,userId})=>{
           const tool=await Tool.findOne({_id:toolId});

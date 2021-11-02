@@ -4,7 +4,7 @@ const {GraphQLUpload}= require('graphql-upload');
 
 const typeDefs = gql`
 
-scalar FileUpload 
+scalar FUpload 
 
 
   type User {
@@ -34,10 +34,7 @@ scalar FileUpload
     }
    
     type File {
-     # url: String!
-     filename: String!
-     mimetype: String!
-     encoding: String!
+     url: String!
     }
 
   
@@ -56,7 +53,8 @@ scalar FileUpload
     myrent(userId:ID!):User
     location(postcode:String!):[User]
     category(category:String):[Tool]
-    myrentt(userId:ID!):User
+    myrentt(userId:ID!):[Tool]
+    toolessmy(userId:ID!):[Tool]
   }
         
 
@@ -76,8 +74,9 @@ scalar FileUpload
       adddueRent(toolId:ID!,duerent:String):Tool
       removeRent(toolId:ID!):Tool
       myrent(toolId:ID!,userId:ID!):User
-       UploadFile(file: FileUpload!): File
+      UploadFile(file: FUpload!): File!
       singleUpload(file: Upload!): File!
+      rentoolp(toolId:ID!,userId:ID!):Tool
   
     }
 

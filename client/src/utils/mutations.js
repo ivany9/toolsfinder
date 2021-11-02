@@ -107,10 +107,10 @@ export const UPDATE_DUERENT = gql`
 `;
 
 export const UPLOAD_FILE = gql`
-mutation UploadFile($file: FileUpload!) {
+mutation UploadFile($file: FUpload!) {
   UploadFile(file:$file){
       
-      filename
+      url
     }
   }
 `;

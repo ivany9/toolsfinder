@@ -94,7 +94,29 @@ export const QUERY_MYTOOLS = gql`
 
 `;
 
+export const MYRENT_TOOLS=gql`
+ 
+query myrentt($userId:ID!){
+   
+  myrentt(userId:$userId)
+  {
+    name
+    category
+    description
 
+  }
+
+
+
+
+
+} 
+
+
+
+
+
+`
 
 
 
