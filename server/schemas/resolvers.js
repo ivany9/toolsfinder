@@ -51,12 +51,9 @@ const resolvers = {
         });
       },
         
-      myrent:async(parent,{userId})=>{
-        return  Tool.find({}).populate('mytools').populate({
-          path:'mytools',
-          populate:'rent'
-        });
-      },
+      myrentt:async(parent,{userId})=>{
+        return  User.find({_id:userId}).populate('myrents')
+        },    
       
       location:async(parent,{postcode})=>{
     
@@ -148,6 +145,7 @@ const resolvers = {
            {_id:toolId},
            {
              $addToSet:{rent:user._id}
+             
             },
             {
               new: true,
@@ -156,6 +154,27 @@ const resolvers = {
             }
         )
           },
+
+          myrent: async(parent,{toolId,userId})=>{
+          const tool=await Tool.findOne({_id:toolId});
+          console.log(tool);
+          return User.findOneAndUpdate(
+             {_id:userId},
+             {
+         
+               $addToSet:{myrents:tool._id}
+              },
+              {
+                new: true,
+                runValidators: true,
+              }
+
+         )
+
+         },
+
+
+
       updatedayprice:async(parent,{toolId,dayprice})=>{
  
          return Tool.findOneAndUpdate({_id:toolId},{dayprice})

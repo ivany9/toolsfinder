@@ -40,7 +40,22 @@ const userSchema = new Schema({
       ref: "Tool",
     },
   ],
+
+  myrents: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Tool",
+    },
+  ],
+
+
+
+
 });
+
+
+
+
 
 // set up pre-save middleware to create password
 userSchema.pre("save", async function (next) {

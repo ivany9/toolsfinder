@@ -15,6 +15,7 @@ scalar FileUpload
     postcode:String
     phone:String
     mytools:[Tool]
+    myrents:[Tool]
    }
 
    
@@ -55,6 +56,7 @@ scalar FileUpload
     myrent(userId:ID!):User
     location(postcode:String!):[User]
     category(category:String):[Tool]
+    myrentt(userId:ID!):User
   }
         
 
@@ -73,6 +75,7 @@ scalar FileUpload
       updateStatus(toolId:ID!,status:Boolean):Tool
       adddueRent(toolId:ID!,duerent:String):Tool
       removeRent(toolId:ID!):Tool
+      myrent(toolId:ID!,userId:ID!):User
        UploadFile(file: FileUpload!): File
       singleUpload(file: Upload!): File!
   

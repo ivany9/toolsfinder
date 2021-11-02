@@ -5,7 +5,7 @@ const ToolList = ({ tools, title }) => {
   if (!tools.length) {
     return <h3>No Profiles Yet</h3>;
   }
-
+  
   return (
     <div>
       <h3 className="text-primary">{title}</h3>
