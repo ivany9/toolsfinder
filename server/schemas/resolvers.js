@@ -192,7 +192,8 @@ const resolvers = {
                  }
              )
                },
-
+           //  ///    texting////////// ///
+ /////////////////////////////////////////////////////////////////////////////
           myrent: async(parent,{toolId,userId})=>{
           const tool=await Tool.findOne({_id:toolId});
           console.log("herramienta"+tool._id);
@@ -212,7 +213,7 @@ const resolvers = {
 
          },
 
-
+///////////////////////////////////////////////////////////////////////////////
 
       updatedayprice:async(parent,{toolId,dayprice})=>{
  
