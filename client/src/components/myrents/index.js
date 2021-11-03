@@ -51,7 +51,7 @@ const Myrent = (props) => {
               </>
             );
           })}
-          );
+          
         </div>
       </div>
     </section>
