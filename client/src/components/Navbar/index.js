@@ -23,7 +23,7 @@ const Navbar = ({ setFormState, formState }) => {
         </NavLink>
         <Bars />
         <NavMenu>
-          <Autocomplete />
+          {/* <Autocomplete /> */}
           {location.pathname === "/" ? (
             <Select formState={formState} setFormState={setFormState} />
           ) : null}

@@ -4,7 +4,7 @@ import { REMOVE_RENT, REMOVE_TOOL } from "../../utils/mutations";
 
 const MyTools = (props) => {
   const { userTools,  refetch } = props;
-  console.log("lo que recibe my tools " + { userTools });
+  console.log("lo que recibe my tools en my tools " + { userTools });
   console.log(refetch, "mytools")
   const [removeRentMutation] = useMutation(REMOVE_RENT)
   const [deleteToolMutation] = useMutation(REMOVE_TOOL)

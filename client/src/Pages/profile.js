@@ -3,10 +3,11 @@ import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import AddTool from "../components/addTool";
 
-import { QUERY_SINGLE_USER, QUERY_ME, QUERY_MYTOOLS } from "../utils/queries";
+import { QUERY_SINGLE_USER, QUERY_ME, QUERY_MYTOOLS,MYRENT_TOOLS  } from "../utils/queries";
 
 import Auth from "../utils/auth";
 import MyTools from "../components/myToolList/MyTools";
+import Myrent from "../components/myrents/index";
 
 const Profile = () => {
   const { userId } = useParams();
@@ -21,13 +22,20 @@ const Profile = () => {
   );
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.user || {};
+
+
   console.log("estes es resultado" + profile._id);
 
   const userTools = useQuery(QUERY_MYTOOLS, {
     variables: { userId: profile._id },
   });
 
-  // console.log(userTools.refetch);
+
+const myrentools=useQuery(MYRENT_TOOLS,{
+  variables:{userId:profile._id},
+})
+
+  console.log("lo que entrega el query e profile"+ userTools);
 
   //////////////////////////////////////////////////////////////////////////////////
 
@@ -43,8 +51,8 @@ const Profile = () => {
   if (!profile?.username) {
     return <h4>Please login</h4>;
   }
-
-
+  
+      
   return (
     <main>
       <div className="flex-row justify-center">
@@ -53,6 +61,7 @@ const Profile = () => {
           {/* <myTooList /> */}
           <AddTool userId={profile._id} refetch={userTools.refetch} />
           <MyTools userTools={userTools.data?.mytools} refetch={userTools.refetch}/>
+           <Myrent myrentools={myrentools.data?.rent} refetch={myrentools.refetch}/>         
         </div>
       </div>
     </main>
