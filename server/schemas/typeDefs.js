@@ -30,6 +30,7 @@ scalar FUpload
     hourprice:Int
     duerent:String
     rent:User
+    createdby:User
     image:String
     }
    
