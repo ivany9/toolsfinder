@@ -69,7 +69,10 @@ const resolvers = {
         },    
       /////////////////////////////////////////////////////////////////////
 
-    
+      //  category2:async(parent,(createby,category)=>{
+      //    return Tool.find({})
+
+      //  })
 
 
 
@@ -147,10 +150,11 @@ const resolvers = {
     },
      addToolt: async (parent,{userId,name,category,description,dayprice,hourprice,image})=>{
        const tool=await Tool.create({name,category,description,dayprice,hourprice,image})
+       console.log(userId);
        return User.findOneAndUpdate(
          {_id:userId},
          {
-           $addToSet:{mytools:tool._id}
+           $addToSet:{mytools:tool._id},
          },
          
        );
