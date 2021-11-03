@@ -17,8 +17,8 @@ const Upload = () => {
       const file = await e.target.files[0];
       if (!file) return;
        await uploadFile({ variables: { file } })
-      // SetFileState(file.name);
-      // props.ImageUpload({
+      //SetFileState(file.name);
+      //props.ImageUpload({
       //     image:file.name
       // })
       console.log("archivo xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" + file.name);
@@ -62,6 +62,7 @@ const Upload = () => {
     // </Mutation>
     <div>
         <input
+          name='mage' 
           type="file"
           required
           onChange={handleFileChange }

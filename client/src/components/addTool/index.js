@@ -5,10 +5,18 @@ import { ADD_TOOL } from "../../utils/mutations";
 import { useParams } from "react-router-dom";
 import FileBase from "react-file-base64";
 import Upload from "./UploadFile";
-import Select from '../../components/picker/index'
+import Select from "../../components/picker/index";
 //import Picker from '../../components/picker/picker'
 
 import Auth from "../../utils/auth";
+import {
+  Col,
+  Form,
+  Row,
+  InputGroup,
+  FormControl,
+  Button,
+} from "react-bootstrap";
 
 const AddTool = ({ userId, refetch }) => {
   //const { userId } = useParams();
@@ -26,16 +34,17 @@ const AddTool = ({ userId, refetch }) => {
 
   // update state based on form input changes
   const handleChange = (event) => {
-    const { name, value } = event.target;
+    const { id, value } = event.target;
 
     setFormState({
       ...formState,
-      [name]: value,
+      [id]: value,
     });
   };
 
   //////////////////////////////////////////////
   const ImageUpload = (image) => {
+    console.log(image);
     setFormState({
       ...formState,
       image: image.image ? image.image : formState.image,
@@ -61,7 +70,7 @@ const AddTool = ({ userId, refetch }) => {
       });
 
       console.log("formulario que esta llenando" + formState);
-      refetch()
+      refetch();
 
       Auth.login(data.addTool.token);
     } catch (e) {
@@ -70,11 +79,61 @@ const AddTool = ({ userId, refetch }) => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">ADD TOOL</h4>
-          <div className="card-body">
+    <main className="mb-4">
+      <div className="">
+        <div className="">
+          <h4 className="text-center99
+           p-2">ADD TOOL</h4>
+          {data ? (
+            <p>Success! You have a new Tool </p>
+          ) : (
+            <Form onSubmit={handleFormSubmit} >
+              <Row className="align-items-center justify-content-between">
+                <Col xs="auto">
+                  <Form.Control
+                    className="mb-2"
+                    id="name"
+                    placeholder="Tool's Name"
+                    onChange={handleChange}
+                  />
+                </Col>
+                <Col xs="auto">
+                  <InputGroup className="mb-2">
+                    <FormControl
+                      id="description"
+                      placeholder="Description"
+                      onChange={handleChange}
+                    />
+                  </InputGroup>
+                </Col>
+                <Col xs="auto">
+                  <Form.Control
+                    className="mb-2"
+                    id="dayprice"
+                    placeholder="Day Price"
+                    onChange={handleChange}
+                  />
+                </Col>
+                <Col xs="auto">
+                  <Form.Control
+                    className="mb-2"
+                    id="hourprice"
+                    placeholder="Hour Price"
+                    onChange={handleChange}
+                  />
+                </Col>
+              </Row>
+              <div className="d-grid gap-2">
+                <Select setFormState={setFormState} formState={formState} />
+                <Button variant="primary" onClick={handleFormSubmit}>Add Tool</Button>
+              </div>
+            </Form>
+          )}
+          {error && (
+            <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+          )}
+
+          {/* <div className="card-body">
             {data ? (
               <p>Success! You have a new Tool </p>
             ) : (
@@ -87,7 +146,7 @@ const AddTool = ({ userId, refetch }) => {
                   value={formState.name}
                   onChange={handleChange}
                 />
-                
+
                 <Select setFormState={setFormState} formState={formState} />
                 <input
                   className="form-input"
@@ -113,10 +172,7 @@ const AddTool = ({ userId, refetch }) => {
                   value={formState.hourprice}
                   onChange={handleChange}
                 />
-                {/* <Upload
-                   ImageUpload={ImageUpload}
-                  
-                />  */}
+                <Upload ImageUpload={ImageUpload} />
                 <button
                   className="btn btn-block btn-info"
                   style={{ cursor: "pointer" }}
@@ -132,7 +188,7 @@ const AddTool = ({ userId, refetch }) => {
                 {error.message}
               </div>
             )}
-          </div>
+          </div> */}
         </div>
       </div>
     </main>

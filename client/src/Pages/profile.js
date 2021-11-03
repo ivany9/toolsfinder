@@ -3,11 +3,17 @@ import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import AddTool from "../components/addTool";
 
-import { QUERY_SINGLE_USER, QUERY_ME, QUERY_MYTOOLS,MYRENT_TOOLS  } from "../utils/queries";
+import {
+  QUERY_SINGLE_USER,
+  QUERY_ME,
+  QUERY_MYTOOLS,
+  MYRENT_TOOLS,
+} from "../utils/queries";
 
 import Auth from "../utils/auth";
 import MyTools from "../components/myToolList/MyTools";
 import Myrent from "../components/myrents/index";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Profile = () => {
   const { userId } = useParams();
@@ -23,19 +29,16 @@ const Profile = () => {
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.user || {};
 
-
   console.log("estes es resultado" + profile._id);
 
   const userTools = useQuery(QUERY_MYTOOLS, {
     variables: { userId: profile._id },
   });
 
-
-const myrentools=useQuery(MYRENT_TOOLS,{
-  variables:{userId:profile._id},
-})
-
-  console.log("lo que entrega el query e profile"+ userTools);
+  const myrentools = useQuery(MYRENT_TOOLS, {
+    variables: { userId: profile._id },
+  });
+  console.log(myrentools, "from profile");
 
   //////////////////////////////////////////////////////////////////////////////////
 
@@ -51,19 +54,29 @@ const myrentools=useQuery(MYRENT_TOOLS,{
   if (!profile?.username) {
     return <h4>Please login</h4>;
   }
-  
-      
+
   return (
     <main>
-      <div className="flex-row justify-center">
-        <div className="col-12 col-md-10 my-3">
-          <h2>My Tool Box</h2>
+        <div className="">
           {/* <myTooList /> */}
+          <Container>
           <AddTool userId={profile._id} refetch={userTools.refetch} />
-          <MyTools userTools={userTools.data?.mytools} refetch={userTools.refetch}/>
-           <Myrent myrentools={myrentools.data?.rent} refetch={myrentools.refetch}/>         
+            <Row>
+              <Col xm={12} md={6} lg={6}>
+                <MyTools
+                  userTools={userTools.data?.mytools}
+                  refetch={userTools.refetch}
+                />
+              </Col>
+              <Col xm={12} md={6} lg={6}>
+                <Myrent
+                  myrentools={myrentools.data?.myrentt}
+                  refetch={myrentools.refetch}
+                />
+              </Col>
+            </Row>
+          </Container>
         </div>
-      </div>
     </main>
   );
 };

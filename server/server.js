@@ -21,7 +21,7 @@ const server = new ApolloServer({
 
 app.use(graphqlUploadExpress());
 
-server.applyMiddleware({ app});     //////////path: '/graphql'
+server.applyMiddleware({app, path: '/graphql'});    //////////path: '/graphql'
 
 app.use(express.urlencoded({ extended: true }))
 

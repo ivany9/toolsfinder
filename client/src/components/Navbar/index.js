@@ -18,7 +18,7 @@ const Navbar = ({ setFormState, formState }) => {
   return (
     <>
       <Nav>
-        <NavLink to="/">
+        <NavLink to="/" onClick={() => setFormState({ category: "" })}>
           <MainLink>ToolsFinder </MainLink>
         </NavLink>
         <Bars />
@@ -31,27 +31,21 @@ const Navbar = ({ setFormState, formState }) => {
           {Auth.loggedIn() ? (
             <>
               <NavLink to="/me">My pofile</NavLink>
-              <NavLink to="/" activeStyle>
-                AddTool
-              </NavLink>
+
               <Button className="btn btn-lg btn-light m-1" onClick={logout}>
                 logout
               </Button>
             </>
           ) : (
             <>
-              <NavLink className="btn btn-lg btn-primary m-2" to="/login">
+              <NavLink className="btn btn-sm m-2" to="/login" size="sm">
                 Login
               </NavLink>
-              <NavLink className="btn btn-lg btn-light m-2" to="/signup">
+              <NavLink className="btn btn-sm m-2" to="/signup" size="sm">
                 Signup
               </NavLink>
             </>
           )}
-
-          <NavLink to="/resume" activeStyle>
-            Resume
-          </NavLink>
         </NavMenu>
       </Nav>
     </>

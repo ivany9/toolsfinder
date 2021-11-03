@@ -11,6 +11,7 @@ export const QUERY_USERS = gql`
         name
         rent {
           username
+          postcode
         }
       }
     }
@@ -23,6 +24,7 @@ export const QUERY_SINGLE_USER = gql`
       _id
       username
       phone
+      postcode
       mytools {
         _id
         name
@@ -48,6 +50,7 @@ export const QUERY_TOOLS = gql`
       hourprice
       rent {
         username
+        postcode
       }
     }
   }
@@ -76,9 +79,14 @@ export const QUERY_MYTOOLS = gql`
         _id
         name
         status
+        description
+        category
+        dayprice
+        hourprice
         rent {
           username
           phone
+          postcode
         }
       }
     }
