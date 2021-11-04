@@ -18,7 +18,7 @@ const Home = ({ category }) => {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <ToolList tools={category.length ? filteredTools : tools} title="Tools for you!!!!" />
+            <ToolList tools={category.length ? filteredTools : tools} title="Tool Box" />
           )}
         </div>
       </div>

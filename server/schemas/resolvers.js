@@ -149,15 +149,26 @@ const resolvers = {
         return await User.create({username, email, password,postcode,phone})  
      
     },
-     addToolt: async (parent,{userId,name,category,description,dayprice,hourprice,image})=>{
-       const tool=await Tool.create({name,category,description,dayprice,hourprice,image}) 
-       let user = await User.findOne({_id:userId})
-       console.log("tool is "+ tool._id + " user is"+user._id);
-      //  return   Tool.findOneAndUpdate({_id:tool._id}, {$addToSet:{createdby:user._id}},{new:true,returnOriginal:true})
-          return User.findOneAndUpdate({_id:userId},{$addToSet:{mytools:tool._id}},{new:true,runValidators:true})
+    //  addToolt: async (parent,{userId,name,category,description,dayprice,hourprice,image})=>{
+    //    let createdby=userId
+    //    const tool=await Tool.create({createdby,name,category,description,dayprice,hourprice,image}) 
+    //             return User.findOneAndUpdate({_id:userId},{$addToSet:{mytools:tool._id}},{new:true,runValidators:true})
         
   
-        },
+    //     },
+
+
+
+
+        addToolt: async (parent,{userId,name,category,description,dayprice,hourprice,image})=>{
+          const tool=await Tool.create({createdby,name,category,description,dayprice,hourprice,image}) 
+          let user = await User.findOne({_id:userId})
+          console.log("tool is "+ tool._id + " user is"+user._id);
+           //  await Tool.findOneAndUpdate({_id:tool._id}, {$addToSet:{createdby:user._id}},{new:true,returnOriginal:true})
+             return User.findOneAndUpdate({_id:userId},{$addToSet:{mytools:tool._id}},{new:true,runValidators:true})
+           
+     
+           },
 
      rentoolt: async(parent,{toolId,username})=>{
        const user=await User.findOne({username});

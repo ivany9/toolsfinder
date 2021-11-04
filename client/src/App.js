@@ -69,11 +69,7 @@ function App() {
         {/* <Route exact path="/addtool">
           <AddTool/>
         </Route> */}
-        
-        <Route exact path='/resume'>
-          <Autocomplete/>
-
-          </Route>
+      
       </Switch>
     </Router>
      </div>

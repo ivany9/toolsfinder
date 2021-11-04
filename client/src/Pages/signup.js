@@ -57,7 +57,7 @@ const Signup = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
+                  placeholder="Username"
                   name="username"
                   type="text"
                   value={formState.username}
@@ -65,7 +65,7 @@ const Signup = () => {
                 />
                 <input
                   className="form-input"
-                  placeholder="Your email"
+                  placeholder="email"
                   name="email"
                   type="email"
                   value={formState.email}
@@ -81,7 +81,7 @@ const Signup = () => {
                 />
                  <input
                   className="form-input"
-                  placeholder="2021"
+                  placeholder="Postcode"
                   name="postcode"
                   type="text"
                   value={formState.postcode}
@@ -95,10 +95,12 @@ const Signup = () => {
                   value={formState.phone}
                   onChange={handleChange}
                 />
+                <br/>
+                <br/>
                 <button
-                  className="btn btn-block btn-info"
+                  className="btn btn-outline-danger btn-lg btn-block mr-1 "
                   style={{ cursor: 'pointer' }}
-                  type="submit"
+                  type="submit" 
                 >
                   Submit
                 </button>
