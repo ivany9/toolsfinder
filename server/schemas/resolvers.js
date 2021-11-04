@@ -72,7 +72,7 @@ const resolvers = {
 
       //  category2:async(parent,(createby,category)=>{
       //    return Tool.find({})
-
+///////
       //  })
 
 
