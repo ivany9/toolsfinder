@@ -51,7 +51,7 @@ const MyTools = (props) => {
                           <ListGroup.Item>
                             <div className="d-flex justify-content-between">
                               <strong>Location</strong>
-                              <span>{item.postcode}</span>
+                              <span>{item.createdby}</span>
                             </div>
                           </ListGroup.Item>
                           <ListGroup.Item>
