@@ -49,9 +49,9 @@ const toolSchema = new Schema({
   
   },
   
-    createby:{
+    createdby:{
     type: Schema.Types.ObjectId,
-    ref: "User", 
+    ref: "User",
    }
  
 

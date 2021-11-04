@@ -8,6 +8,7 @@ const {
   GraphQLUpload,
   graphqlUploadExpress, // A Koa implementation is also exported.
 } = require('graphql-upload');
+const { updateOne } = require('../models/User');
 
 const getFileDetails = file => 
   new Promise (async (resolve, reject) => {
@@ -40,7 +41,7 @@ const resolvers = {
   Query: {
    
      tools:async()=>{
-      return await Tool.find({}).populate('rent');        
+      return await Tool.find({}).populate('rent').populate('createdby');        
      
    },
 
@@ -149,16 +150,13 @@ const resolvers = {
      
     },
      addToolt: async (parent,{userId,name,category,description,dayprice,hourprice,image})=>{
-       const tool=await Tool.create({name,category,description,dayprice,hourprice,image})
-       console.log(userId);
-       return User.findOneAndUpdate(
-         {_id:userId},
-         {
-           $addToSet:{mytools:tool._id},
-         },
-         
-       );
-
+       const tool=await Tool.create({name,category,description,dayprice,hourprice,image}) 
+       let user = await User.findOne({_id:userId})
+       console.log("tool is "+ tool._id + " user is"+user._id);
+       await Tool.findOneAndUpdate({_id:tool._id}, {$addToSet:{createdby:user._id}},{new:true,returnOriginal:true})
+          return  User.findOneAndUpdate({_id:userId},{$addToSet:{mytools:tool._id}},{new:true,runValidators:true})
+        
+  
         },
 
      rentoolt: async(parent,{toolId,username})=>{

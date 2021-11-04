@@ -13,30 +13,37 @@ const db = require("./config/connection")
 const PORT = process.env.PORT || 3001;
 const app = express();
 
-const server = new ApolloServer({
-  typeDefs,
-  resolvers,
-  context: authMiddleware,
-});
-
-app.use(graphqlUploadExpress());
-
-server.applyMiddleware({app, path: '/graphql'});    //////////path: '/graphql'
 
 app.use(express.urlencoded({ extended: true }))
 
 app.use(express.static("public"));
 
 
-
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../client/build")));
-}
-
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+async function startServer() {
+const server = new ApolloServer({
+  typeDefs,
+  resolvers,
+  context: authMiddleware,
 });
+
+
+await server.start();
+
+app.use(graphqlUploadExpress());
+
+server.applyMiddleware({app, path: '/graphql'});    //////////path: '/graphql'
+
+
+
+
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname, "../client/build")));
+// }
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
+// });
 
 db.once("open", () => {
   app.listen(PORT, () => {
@@ -44,3 +51,5 @@ db.once("open", () => {
     console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
   });
 });
+}
+startServer();
