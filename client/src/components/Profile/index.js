@@ -30,7 +30,7 @@ const ToolList = ({ tools, title }) => {
   return (
     <div>
       <Container>
-        <h1>{title}</h1>
+        <h1 className="text-center text-danger">{title}</h1>
         <Row>
           {tools &&
             tools.map((profile) => (
