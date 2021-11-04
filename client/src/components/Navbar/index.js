@@ -30,7 +30,7 @@ const Navbar = ({ setFormState, formState }) => {
           {/* <Select/> */}
           {Auth.loggedIn() ? (
             <>
-              <NavLink to="/me">My pofile</NavLink>
+              <NavLink to="/me">My profile</NavLink>
 
               <Button className="btn btn-lg btn-light m-1" onClick={logout}>
                 logout
