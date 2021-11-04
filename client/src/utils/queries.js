@@ -48,6 +48,11 @@ export const QUERY_TOOLS = gql`
       status
       dayprice
       hourprice
+      createdby{
+        postcode
+
+     }
+
       rent {
         username
         postcode
@@ -83,6 +88,10 @@ export const QUERY_MYTOOLS = gql`
         category
         dayprice
         hourprice
+        createdby{
+           postcode
+
+                  }
         rent {
           username
           phone
