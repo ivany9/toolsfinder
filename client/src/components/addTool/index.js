@@ -126,7 +126,7 @@ const AddTool = ({ userId, refetch }) => {
               <div className="d-grid gap-2">
                 <Select setFormState={setFormState} formState={formState} />
                 <Button variant="primary" onClick={handleFormSubmit}>Add Tool</Button>
-                {/* <Upload ImageUpload={ImageUpload} /> */}
+                <Upload ImageUpload={ImageUpload} />
               </div>
             </Form>
           )}

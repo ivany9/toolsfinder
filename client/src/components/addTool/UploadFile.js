@@ -62,7 +62,7 @@ const Upload = () => {
     // </Mutation>
     <div>
         <input
-          name='mage' 
+          name='image' 
           type="file"
           required
           onChange={handleFileChange }
