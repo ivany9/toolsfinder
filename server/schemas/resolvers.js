@@ -45,10 +45,11 @@ const resolvers = {
      
    },
 
-  //  toolessmy:async(parent,{userId})=>{
-  //   return await Tool.find({ mytools:{$ne: userId}})        
-  //  },
-         // pendiente
+   
+   toolessmy:async(parent,{userId})=>{
+    return await Tool.find({ createdby:{$ne: userId}}).populate('createdby');        
+   },
+       
 
 
 
@@ -68,14 +69,7 @@ const resolvers = {
       myrentt:async(parent,{userId})=>{
         return await Tool.find({rent:userId})
         },    
-      /////////////////////////////////////////////////////////////////////
-
-      //  category2:async(parent,(createby,category)=>{
-      //    return Tool.find({})
-///////
-      //  })
-
-
+    
 
 
       location:async(parent,{postcode})=>{

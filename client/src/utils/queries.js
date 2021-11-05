@@ -121,6 +121,32 @@ export const QUERY_ME = gql`
   }
 `;
 
+
+export const TOOLESSMY=gql`
+ 
+    query toolessmy{
+      _id
+      name
+      status
+      description
+      category
+      dayprice
+      hourprice
+      createdby{
+         postcode
+
+                }
+
+
+
+    }
+
+
+
+`
+;
+
+
 export const LOCATION = gql`
   query location($postcode: String!) {
     location(postcode: $postcode) {

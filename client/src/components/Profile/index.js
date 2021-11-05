@@ -56,7 +56,7 @@ const ToolList = ({ tools, title }) => {
                         <ListGroup.Item>
                           <div className="d-flex justify-content-between">
                             <strong>Location</strong>
-                            <span>{profile.postcode}</span>
+                            <span>{profile.createdby.postcode}</span>
                           </div>
                         </ListGroup.Item>
                         <ListGroup.Item>

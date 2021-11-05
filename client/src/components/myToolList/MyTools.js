@@ -48,12 +48,7 @@ const MyTools = (props) => {
                               <span>{item.category}</span>
                             </div>
                           </ListGroup.Item>
-                          {/* <ListGroup.Item>
-                            <div className="d-flex justify-content-between">
-                              <strong>Location</strong>
-                              <span>{item.name}</span>/
-                            </div>
-                          </ListGroup.Item> */}
+                  
                           <ListGroup.Item>
                             <div className="d-flex justify-content-between">
                               <strong>From</strong>
