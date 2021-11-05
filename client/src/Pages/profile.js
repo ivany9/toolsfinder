@@ -29,7 +29,7 @@ const Profile = () => {
   // Check if data is returning from the `QUERY_ME` query, then the `QUERY_SINGLE_PROFILE` query
   const profile = data?.me || data?.user || {};
 
-  console.log("estes es resultado" + profile._id);
+  // console.log("estes es resultado" + profile._id);
 
   const userTools = useQuery(QUERY_MYTOOLS, {
     variables: { userId: profile._id },
@@ -38,7 +38,7 @@ const Profile = () => {
   const myrentools = useQuery(MYRENT_TOOLS, {
     variables: { userId: profile._id },
   });
-  console.log(myrentools, "from profile");
+  // console.log(myrentools, "from profile");
 
   //////////////////////////////////////////////////////////////////////////////////
 

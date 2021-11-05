@@ -48,10 +48,9 @@ export const QUERY_TOOLS = gql`
       status
       dayprice
       hourprice
-      createdby{
+      createdby {
         postcode
-
-     }
+      }
 
       rent {
         username
@@ -88,10 +87,9 @@ export const QUERY_MYTOOLS = gql`
         category
         dayprice
         hourprice
-        createdby{
-           postcode
-
-                  }
+        createdby {
+          postcode
+        }
         rent {
           username
           phone
@@ -121,10 +119,9 @@ export const QUERY_ME = gql`
   }
 `;
 
-
-export const TOOLESSMY=gql`
- 
-    query toolessmy{
+export const TOOLESSMY = gql`
+  query toolessmy($userId: ID!) {
+    toolessmy(userId: $userId) {
       _id
       name
       status
@@ -132,20 +129,17 @@ export const TOOLESSMY=gql`
       category
       dayprice
       hourprice
-      createdby{
-         postcode
-
-                }
-
-
-
+      createdby {
+        postcode
+      }
+      rent {
+        username
+        phone
+        postcode
+      }
     }
-
-
-
-`
-;
-
+  }
+`;
 
 export const LOCATION = gql`
   query location($postcode: String!) {
@@ -177,6 +171,9 @@ export const CATEGORY = gql`
       rent {
         username
         phone
+        postcode
+      }
+      createdby {
         postcode
       }
     }

@@ -14,7 +14,7 @@ const ToolList = ({ tools, title }) => {
   }
   
   const rentTool = async (id) => {
-    console.log(id);
+    console.log(username);
     try {
       // if(auth_token) {
       const { data } = await rentToolMutation({
@@ -56,7 +56,7 @@ const ToolList = ({ tools, title }) => {
                         <ListGroup.Item>
                           <div className="d-flex justify-content-between">
                             <strong>Location</strong>
-                            <span>{profile.category}</span>
+                            <span>{profile.createdby?.postcode}</span>
                           </div>
                         </ListGroup.Item>
                         <ListGroup.Item>

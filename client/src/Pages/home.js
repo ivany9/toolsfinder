@@ -9,13 +9,15 @@ import MyTools from "../components/myToolList/MyTools";
 
 const Home = ({ category }) => {
   const auth_token = localStorage.getItem("id_token");
-  const userId = auth_token ? Auth.getProfile().data.username : null;
+  const userId = auth_token ? Auth.getProfile().data._id : null;
   const { loading, data, refetch } = useQuery(QUERY_TOOLS);
   const tools = data?.tools || [];
   const filteredToolsQuery = useQuery(CATEGORY, { variables: { category } });
   const filteredTools = filteredToolsQuery.data?.category || []
   const toolsless=useQuery(TOOLESSMY,{variables:{userId} });
-  const tools1=toolsless?.toolessmy || [];
+  const tools1=toolsless.data?.toolessmy || [];
+
+  console.log(filteredTools, "tools1")
    
   
   
@@ -31,7 +33,7 @@ const Home = ({ category }) => {
              <div>Loading...</div>
            ) : (
                 //  <div>hola</div>
-              <ToolList tools={tools1}  title="Tool Box" />
+              <ToolList tools={category.length ? filteredTools : tools1}  title="Tool Box" />
              
            )}
           </>

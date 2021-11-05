@@ -80,7 +80,7 @@ const resolvers = {
 
       category:async(parent,{category})=>{
     
-        return  Tool.find({category}).populate('rent')
+        return  Tool.find({category}).populate('rent').populate('createdby')
         
       },
         

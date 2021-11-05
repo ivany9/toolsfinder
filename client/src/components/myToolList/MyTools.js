@@ -5,8 +5,6 @@ import { Card, Container, Row, Col, ListGroup, Button } from "react-bootstrap";
 
 const MyTools = (props) => {
   const { userTools, refetch } = props;
-  console.log("lo que recibe my tools en my tools " + { userTools });
-  console.log(refetch, "mytools");
   const [removeRentMutation] = useMutation(REMOVE_RENT);
   const [deleteToolMutation] = useMutation(REMOVE_TOOL);
 

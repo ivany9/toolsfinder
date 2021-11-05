@@ -5,7 +5,6 @@ import { Card, Container, Row, Col, ListGroup, Button } from "react-bootstrap";
 
 const Myrent = (props) => {
   const { myrentools, refetch } = props;
-  console.log(refetch, "mytools");
   const [removeRentMutation] = useMutation(REMOVE_RENT);
 
   const removeRent = async (id) => {
@@ -15,8 +14,8 @@ const Myrent = (props) => {
     refetch();
   };
 
-  console.log("objeto en myrents", myrentools);
-  refetch();
+  // console.log("objeto en myrents", myrentools);
+  //  refetch();
   return (
     <section className="w-75">
       <h4>My rents</h4>
