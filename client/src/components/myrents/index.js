@@ -16,7 +16,7 @@ const Myrent = (props) => {
   };
 
   console.log("objeto en myrents", myrentools);
- 
+  refetch();
   return (
     <section className="w-75">
       <h4>My rents</h4>

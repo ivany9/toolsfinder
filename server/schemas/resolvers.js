@@ -164,7 +164,7 @@ const resolvers = {
           const tool=await Tool.create({name,category,description,dayprice,hourprice,image}) 
           let user = await User.findOne({_id:userId})
           console.log("tool is "+ tool._id + " user is"+user._id);
-             await Tool.findOneAndUpdate({_id:tool._id}, {$addToSet:{createdby:user._id}},{new:true,returnOriginal:true})
+             await Tool.findOneAndUpdate({_id:tool._id},{createdby:user._id},{new:true,returnOriginal:true})
              return User.findOneAndUpdate({_id:userId},{$addToSet:{mytools:tool._id}},{new:true,runValidators:true})
            
      
@@ -173,19 +173,7 @@ const resolvers = {
      rentoolt: async(parent,{toolId,username})=>{
        const user=await User.findOne({username});
        console.log(username);
-        return Tool.findOneAndUpdate(
-           {_id:toolId},
-           {
-             $addToSet:{rent:user._id}
-             
-            },
-            {
-              new: true,
-              runValidators: true,
-              
-            }
-        )
-          },
+        return Tool.findOneAndUpdate({_id:toolId},{rent:user._id},{new: true,runValidators: true})},
 
     ///////////////////////////////////////////////////////////////////////////////
     ////////renta la tool con una nuevo valor de esquema      

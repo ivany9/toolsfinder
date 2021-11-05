@@ -12,8 +12,9 @@ const ToolList = ({ tools, title }) => {
   if (!tools.length) {
     return <h3>No Profiles Yet</h3>;
   }
-
+  
   const rentTool = async (id) => {
+    console.log(id);
     try {
       // if(auth_token) {
       const { data } = await rentToolMutation({
@@ -26,6 +27,9 @@ const ToolList = ({ tools, title }) => {
     } catch (error) {
       console.log(error);
     }
+  
+    //refetch();
+  
   };
   return (
     <div>

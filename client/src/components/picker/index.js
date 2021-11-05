@@ -13,8 +13,8 @@ return(
     [DropdownButton].map((DropdownType, idx) => (
       <DropdownType
         as={ButtonGroup}
-        id="dropdown-button-drop"
-        size="sm"
+        id="dropdown-button-drop "
+        size="lg"
         variant="danger"
         title="Category"
         onSelect={(e) => setFormState({...formState, category: e})}
