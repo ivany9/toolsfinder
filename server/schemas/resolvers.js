@@ -67,7 +67,7 @@ const resolvers = {
         
       //////////////////////////////////////////////////////////////////////
       myrentt:async(parent,{userId})=>{
-        return await Tool.find({rent:userId})
+        return await Tool.find({rent:userId}).populate('createdby')
         },    
     
 

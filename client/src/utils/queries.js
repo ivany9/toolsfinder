@@ -106,6 +106,12 @@ export const MYRENT_TOOLS = gql`
       name
       category
       description
+      createdby
+      {
+        username
+        phone
+        email
+               }
     }
   }
 `;

@@ -44,6 +44,24 @@ const Myrent = (props) => {
                           <span>{item.description}</span>
                         </div>
                       </ListGroup.Item>
+                      <ListGroup.Item>
+                        <div className="d-flex justify-content-between">
+                          <strong>Contact</strong>
+                          <span>{item.createdby.username}</span>
+                        </div>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <div className="d-flex justify-content-between">
+                          <strong>Phone Number</strong>
+                          <span>{item.createdby.phone}</span>
+                        </div>
+                      </ListGroup.Item>
+                      <ListGroup.Item>
+                        <div className="d-flex justify-content-between">
+                          <strong>email</strong>
+                          <span>{item.createdby.email}</span>
+                        </div>
+                      </ListGroup.Item>
                     </ListGroup>
                   </Card.Body>
                 </Card>
