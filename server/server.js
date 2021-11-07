@@ -18,8 +18,6 @@ app.use(express.urlencoded({ extended: true }))
 
 app.use(express.static("public"));
 
-
-async function startServer() {
 const server = new ApolloServer({
   typeDefs,
   resolvers,
@@ -27,29 +25,32 @@ const server = new ApolloServer({
 });
 
 
-await server.start();
-
 app.use(graphqlUploadExpress());
 
-server.applyMiddleware({app, path: '/graphql'});    //////////path: '/graphql'
-
-
-
-
-
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname, "../client/build")));
-// }
-
-// app.get("*", (req, res) => {
-//   res.sendFile(path.join(__dirname, "../client/build/index.html"));
-// });
-
-db.once("open", () => {
-  app.listen(PORT, () => {
-    console.log(`API server running on port ${PORT}!`);
-    console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
-  });
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../client/build")));
 }
-startServer();
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/build/index.html"));
+});
+
+
+
+async function startApolloServer(typeDefs, resolvers){
+  await server.start();
+  server.applyMiddleware({app, path: '/graphql'});
+  
+  db.once('open', () => {
+      app.listen(PORT, () => {
+        console.log(`API server running on port ${PORT}!`);
+        console.log(`Use GraphQL at http://localhost:${PORT}${server.graphqlPath}`);
+      });
+    });    
+}
+
+startApolloServer(typeDefs, resolvers);
+
+
+
+
