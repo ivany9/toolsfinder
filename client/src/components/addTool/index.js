@@ -43,13 +43,13 @@ const AddTool = ({ userId, refetch }) => {
   };
 
   //////////////////////////////////////////////
-  const ImageUpload = (image) => {
-    console.log(image);
-    setFormState({
-      ...formState,
-      image: image.image ? image.image : formState.image,
-    });
-  };
+  // const ImageUpload = (image) => {
+  //   console.log(image);
+  //   setFormState({
+  //     ...formState,
+  //     image: image.image ? image.image : formState.image,
+  //   });
+  // };
 
   ///////////////////////////////////////
 
@@ -134,62 +134,6 @@ const AddTool = ({ userId, refetch }) => {
             <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
           )}
 
-          {/* <div className="card-body">
-            {data ? (
-              <p>Success! You have a new Tool </p>
-            ) : (
-              <form onSubmit={handleFormSubmit}>
-                <input
-                  className="form-input"
-                  placeholder="Tool's name"
-                  name="name"
-                  type="text"
-                  value={formState.name}
-                  onChange={handleChange}
-                />
-
-                <Select setFormState={setFormState} formState={formState} />
-                <input
-                  className="form-input"
-                  type="text"
-                  placeholder="description"
-                  name="description"
-                  value={formState.description}
-                  onChange={handleChange}
-                />
-                <input
-                  type="number"
-                  className="form-input"
-                  placeholder="dayprice"
-                  name="dayprice"
-                  value={formState.dayprice}
-                  onChange={handleChange}
-                />
-                <input
-                  type="number"
-                  className="form-input"
-                  placeholder="hourprice"
-                  name="hourprice"
-                  value={formState.hourprice}
-                  onChange={handleChange}
-                />
-                <Upload ImageUpload={ImageUpload} />
-                <button
-                  className="btn btn-block btn-info"
-                  style={{ cursor: "pointer" }}
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </form>
-            )}
-
-            {error && (
-              <div className="my-3 p-3 bg-danger text-white">
-                {error.message}
-              </div>
-            )}
-          </div> */}
         </div>
       </div>
     </main>
