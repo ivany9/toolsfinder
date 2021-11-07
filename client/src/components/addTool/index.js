@@ -43,13 +43,13 @@ const AddTool = ({ userId, refetch }) => {
   };
 
   //////////////////////////////////////////////
-  // const ImageUpload = (image) => {
-  //   console.log(image);
-  //   setFormState({
-  //     ...formState,
-  //     image: image.image ? image.image : formState.image,
-  //   });
-  // };
+  const ImageUpload = (image) => {
+    console.log(image);
+    setFormState({
+      ...formState,
+      image: image.image ? image.image : formState.image,
+    });
+  };
 
   ///////////////////////////////////////
 
