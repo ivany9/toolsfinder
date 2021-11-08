@@ -38,10 +38,10 @@ const Navbar = ({ setFormState, formState }) => {
             </>
           ) : (
             <>
-              <NavLink className="btn btn-sm m-2" to="/login" size="sm">
+              <NavLink className="btn btn-danger text-light -sm m-2" to="/login" size="sm">
                 Log in
               </NavLink>
-              <NavLink className="btn btn-sm m-2" to="/signup" size="sm">
+              <NavLink className="btn btn-danger text-light -sm m-2" to="/signup" size="sm">
                 Sign up
               </NavLink>
             </>

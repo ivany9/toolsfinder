@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './Pages/login';
 import Home from './Pages/home';
 import Profile from './Pages/profile';
-import Resume from './Pages/resume';
 import Signup from './Pages/signup';
 import Footer from './components/Footer'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -17,8 +16,7 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import {createUploadLink} from 'apollo-upload-client';
 import Autocomplete from './components/autocomplete';
-
-
+import Container1 from './components/pageStyle';
 
 const httpLink = createUploadLink({
   uri: '/graphql',
@@ -66,9 +64,7 @@ function App() {
         <Route exact path="/profile/:userId">
           <Profile />
         </Route>
-        {/* <Route exact path="/addtool">
-          <AddTool/>
-        </Route> */}
+     
       
       </Switch>
     </Router>

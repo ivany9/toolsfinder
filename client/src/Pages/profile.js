@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Redirect, useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import AddTool from "../components/addTool";
+import  Background from '../images/m.png';
 
 import {
   QUERY_SINGLE_USER,
@@ -52,8 +53,39 @@ const Profile = () => {
   }
 
   if (!profile?.username) {
-    return <h4>Please login</h4>;
+    return <h4>Please login </h4>;
   }
+
+  const Styles={
+   
+    backlogin:{
+     width: "100%",
+     height: "800px",
+
+     backgroundImage: `url(${Background})`
+     
+   },
+   
+    cardstyle:{
+
+     backgroundColor:"#6e785e29",
+     },
+
+     But:{
+
+       Background:"#b7313175",
+       }
+ 
+ 
+    }
+
+
+  
+
+
+
+
+
 
   return (
     <main>

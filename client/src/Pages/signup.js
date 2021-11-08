@@ -5,6 +5,7 @@ import { useMutation } from '@apollo/client';
 import { ADD_USER } from '../utils/mutations';
 
 import Auth from '../utils/auth';
+import  Background from '../images/m.png';
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -42,12 +43,41 @@ const Signup = () => {
     }
   };
 
+
+
+  const Styles={
+   
+    backlogin:{
+     width: "100%",
+     height: "800px",
+
+     backgroundImage: `url(${Background})`
+     
+   },
+   
+    cardstyle:{
+
+      backgroundColor:"#0a090ad6",
+     },
+
+     But:{
+
+       Background:"#b7313175",
+       }
+ 
+ 
+    }
+
+
+  
+
+
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
+    <main className="d-flex align-items-center justify-conetnt justify-content-center mb-4" style={Styles.backlogin}>
+      <div className="col-8 col-lg-7">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
-          <div className="card-body">
+          <h4 className="card-header  text-danger text-center p-2" style={Styles.cardstyle}>Sign Up</h4>
+          <div className="card-body" style={Styles.cardstyle}>
             {data ? (
               <p>
                 Success! You may now head{' '}
