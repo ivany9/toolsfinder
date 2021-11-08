@@ -34,7 +34,7 @@ const ToolList = ({ tools, title }) => {
   return (
     <div>
       <Container>
-        <h1 className="text-center text-danger">{title}</h1>
+        <h1 className="text-center text-light">{title}</h1>
         <Row>
           {tools &&
             tools.map((profile) => (
@@ -75,7 +75,7 @@ const ToolList = ({ tools, title }) => {
                           <Button
                             disabled={profile.rent}
                             onClick={() => rentTool(profile._id)}
-                            variant={profile.rent ? "secondary" : "success"}
+                            variant={profile.rent ? "warning" : "success"}
                           >
                             {profile.rent ? "Rented" : "Rent"}
                           </Button>
@@ -88,8 +88,7 @@ const ToolList = ({ tools, title }) => {
             ))}
         </Row>
       </Container>
-      {/* <h3 className="text-primary">{title}</h3>
-      <div className="flex-row justify-space-between my-4"></div> */}
+    
     </div>
   );
 };

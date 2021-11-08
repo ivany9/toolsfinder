@@ -58,25 +58,12 @@ const Profile = () => {
 
   const Styles={
    
-    backlogin:{
-     width: "100%",
-     height: "800px",
-
-     backgroundImage: `url(${Background})`
-     
-   },
-   
+    
     cardstyle:{
 
-     backgroundColor:"#6e785e29",
+     backgroundColor:"#0a090a96",
      },
 
-     But:{
-
-       Background:"#b7313175",
-       }
- 
- 
     }
 
 
@@ -89,7 +76,7 @@ const Profile = () => {
 
   return (
     <main>
-        <div className="">
+        <div className="profile" style={Styles.cardstyle}>
           {/* <myTooList /> */}
           <Container>
           <AddTool userId={profile._id} refetch={userTools.refetch} />

@@ -18,7 +18,7 @@ const Myrent = (props) => {
   //  refetch();
   return (
     <section className="w-75">
-      <h4>My rents</h4>
+      <div className="title text-white "><h4>Rented Tools</h4></div>
 
       <div>
         <div className="tools-container w-75">

@@ -13,7 +13,7 @@ export const Nav = styled.nav`
 `
 
 export const NavLink = styled(Link)`
-  color: #fff;
+  color: white;
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -23,12 +23,12 @@ export const NavLink = styled(Link)`
   font-size:20px;
 
   &:hover {
-    color: gray;
+    color: red;
     transition: 200ms ease-in;
   }
 
   &.active {
-    color: gray;
+    color: green;
   }
 `;
 
@@ -39,7 +39,7 @@ export const MainLink = styled.p`
   color:white;
 
   &:hover {
-    color: gray;
+    color: red;
     transition: 200ms ease-in;
   }
 

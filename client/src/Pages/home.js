@@ -6,6 +6,7 @@ import ToolList from "../components/Profile";
 
 import { CATEGORY, QUERY_TOOLS,TOOLESSMY } from "../utils/queries";
 import MyTools from "../components/myToolList/MyTools";
+import b1 from '../images/b1.png'
 
 const Home = ({ category }) => {
   const auth_token = localStorage.getItem("id_token");
@@ -19,12 +20,23 @@ const Home = ({ category }) => {
 
   console.log(filteredTools, "tools1")
    
-  
+  const Styles={
+   
+    backhome:{
+    
+      backgroundColor:"#0a090a96",
+   
+   },
+  }
+
+
+
+
   
 
   return (
     <main>
-      <div className="flex-row justify-center">
+      <div className="flex-row justify-center" style={Styles.backhome} >
         <div className="col-12 col-md-10 my-3">
           
         {Auth.loggedIn() ? (

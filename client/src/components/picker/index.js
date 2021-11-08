@@ -14,7 +14,7 @@ return(
       <DropdownType
         as={ButtonGroup}
         id="dropdown-button-drop "
-        size="lg"
+        size="m"
         variant="danger"
         title="Category"
         onSelect={(e) => setFormState({...formState, category: e})}

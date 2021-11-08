@@ -24,7 +24,7 @@ const MyTools = (props) => {
   };
   return (
     <section className="w-100">
-      <h4>My tools</h4>
+     <div className="title text-white  "> <h4>My tools</h4></div>
 
       <div>
         <div className="tools-container">

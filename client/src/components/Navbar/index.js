@@ -32,16 +32,16 @@ const Navbar = ({ setFormState, formState }) => {
             <>
               <NavLink to="/me">My profile</NavLink>
 
-              <Button className="btn btn-lg btn-light m-1" onClick={logout}>
+              <Button className="btn btn- btn-light m-1" onClick={logout}>
                 logout
               </Button>
             </>
           ) : (
             <>
-              <NavLink className="btn btn-danger text-light -sm m-2" to="/login" size="sm">
+              <NavLink  to="/login">
                 Log in
               </NavLink>
-              <NavLink className="btn btn-danger text-light -sm m-2" to="/signup" size="sm">
+              <NavLink to="/signup" >
                 Sign up
               </NavLink>
             </>

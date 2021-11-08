@@ -78,11 +78,18 @@ const AddTool = ({ userId, refetch }) => {
     }
   };
 
+
+
+
+
+
+
+
   return (
     <main className="mb-4">
       <div className="">
         <div className="">
-          <h4 className="text-center99
+          <h4 className="text-center99 text-center text-white 
            p-2">ADD TOOL</h4>
           {data ? (
             <p>Success! You have a new Tool </p>
@@ -122,12 +129,19 @@ const AddTool = ({ userId, refetch }) => {
                     onChange={handleChange}
                   />
                 </Col>
-              </Row>
-              <div className="d-grid gap-2">
+                <Col xs="auto">
+                <div className="selector d-flex  justify-content-end  gap-2">
                 <Select setFormState={setFormState} formState={formState} />
-                <Button variant="primary" onClick={handleFormSubmit}>Add Tool</Button>
-                <Upload ImageUpload={ImageUpload} />
-              </div>
+                </div>
+                </Col>
+                <Col xs="auto">
+                <div className=" addtol  d-flex  justify-content-end gap-5">
+                <Button variant="warning" onClick={handleFormSubmit}>Add Tool</Button>
+                </div>
+                </Col>
+              </Row>
+               <br/>
+                
             </Form>
           )}
           {error && (
