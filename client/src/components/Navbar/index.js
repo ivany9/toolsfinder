@@ -25,9 +25,8 @@ const Navbar = ({ setFormState, formState }) => {
       <Nav>
         <NavLink to="/" onClick={() => setFormState({ category: "" })}>
           <MainLink>ToolsFinder </MainLink>
-          
         </NavLink>
-        <Bars />
+        
         <NavMenu>
           {/* <Autocomplete /> */}
           {location.pathname === "/" ? (
@@ -54,6 +53,7 @@ const Navbar = ({ setFormState, formState }) => {
             </>
           )}
         </NavMenu>
+       
       </Nav>
     </>
   );

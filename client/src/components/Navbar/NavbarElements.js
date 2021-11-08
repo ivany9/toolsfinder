@@ -53,7 +53,7 @@ export const Bars = styled(FaBars)`
   display: none;
   color: #fff;
 
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 800px) {
     display: block;
     position: absolute;
     top: 0;
@@ -65,20 +65,21 @@ export const Bars = styled(FaBars)`
 `;
 
 export const NavMenu = styled.div`
-  display: flex;
-  align-items: center;
-  margin-right: -24px;
+display: flex;
+align-items: center;
 
-
-  @media screen and (max-width: 768px) {
+  @media screen and (max-width: 650px) {
     display: none;
+    display: flex;
+    align-items: center;
+    margin-right: -24px;
+  
+  
+  
+  
   }
 `;
 
-export const BackgroundLogin=styled.div`
-
-  background: #ffffff;
 
 
-`
 
