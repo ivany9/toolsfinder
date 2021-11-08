@@ -75,5 +75,10 @@ export const NavMenu = styled.div`
   }
 `;
 
+export const BackgroundLogin=styled.div`
 
+  background: #ffffff;
+
+
+`
 
