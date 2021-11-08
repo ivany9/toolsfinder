@@ -6,6 +6,11 @@ import Select from "../../components/picker/index";
 import Autocomplete from "../autocomplete";
 import { useLocation } from "react-router-dom";
 
+
+const auth_token = localStorage.getItem("id_token");
+const username = auth_token ? Auth.getProfile().data.username : null;
+console.log(username);
+
 const Navbar = ({ setFormState, formState }) => {
   const location = useLocation();
   const logout = (event) => {
@@ -20,6 +25,7 @@ const Navbar = ({ setFormState, formState }) => {
       <Nav>
         <NavLink to="/" onClick={() => setFormState({ category: "" })}>
           <MainLink>ToolsFinder </MainLink>
+          
         </NavLink>
         <Bars />
         <NavMenu>
@@ -30,8 +36,9 @@ const Navbar = ({ setFormState, formState }) => {
           {/* <Select/> */}
           {Auth.loggedIn() ? (
             <>
-              <NavLink to="/me">My profile</NavLink>
-
+              
+              <NavLink to="/me">{username}</NavLink>
+              
               <Button className="btn btn- btn-light m-1" onClick={logout}>
                 logout
               </Button>
