@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { LOGIN_USER } from '../utils/mutations';
+import  Background from '../images/m.png';
 
 import Auth from '../utils/auth';
 
@@ -40,12 +41,49 @@ const Login = (props) => {
     });
   };
 
+   const Styles={
+   
+     backlogin:{
+      width: "100%",
+      height: "800px",
+ 
+      backgroundImage: `url(${Background})`
+      
+    },
+    
+     cardstyle:{
+
+      backgroundColor:"#0a090ad6",
+      },
+
+      titlebackgroud:{
+   
+        backgroundColor:"#4670da1f"
+
+      },
+
+      But:{
+
+        Background:"#b7313175",
+        }
+  
+  
+     }
+
+
+   
+
+   
+
+
   return (
-    <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
-          <div className="card-body">
+
+    <div className="Ppal d-flex align-items-center justify-content-center "style={Styles.backlogin} >
+    <main className="d-flex justify-content-center p-2">
+      <div className="col-15 col-lg-15">
+        <div className="card "  >
+          <h4 className="card-header bg-secundary link text-danger text-center p-2" style={Styles.cardstyle}>Log in</h4>
+          <div className="card-body d-flex justify-center " style={Styles.cardstyle} >
             {data ? (
               <p>
                 Success! You may now head{' '}
@@ -62,7 +100,7 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
                 <input
-                  className="form-input"
+                  className="form-input d-flex justify-center"
                   placeholder="******"
                   name="password"
                   type="password"
@@ -72,7 +110,7 @@ const Login = (props) => {
                 <br/>
                 <br/>
                 <button
-                  className="btn btn-outline-danger btn-lg btn-block mr-1 "
+                  className="btn btn-outline-danger btn-lg btn-block mr-3 text-center"  
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
@@ -82,7 +120,7 @@ const Login = (props) => {
             )}
 
             {error && (
-              <div className="my-3 p-3 bg-danger text-white">
+              <div className="my-3 p-3 bg text-white"  >
                 {error.message}
               </div>
             )}
@@ -90,6 +128,7 @@ const Login = (props) => {
         </div>
       </div>
     </main>
+    </div>
   );
 };
 
