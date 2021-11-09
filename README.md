@@ -56,6 +56,11 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 
 <a href="https://toolsfinder.herokuapp.com">Deploy</a>
 
+
+## Mockup
+
+![mockup](https://user-images.githubusercontent.com/83906297/140872796-cbd205c3-e03d-49a9-a6e6-3ece6f4e4b0f.gif)
+
 ## Model 
 
 ## `User`
