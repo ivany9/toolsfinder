@@ -49,9 +49,12 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 ## Wireframes
 
 
-
-
 <a href="https://github.com/ivany9/toolsfinder/files/7414012/toolsFinder.26oc.pdf" download="resume.pdf">Download</a>
+
+## Deploy
+
+
+<a href="https://toolsfinder.herokuapp.com">Deploy</a>
 
 ## Model 
 
@@ -103,24 +106,20 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 
  # Technology
 
--React "Front End "
+-React 
 -Node.js
 -Express.js
 -Mongoose
 -Mongodb
--Multer
 -Dotenv
 -nodemon
--Google Cloud 
 -graphql
--Mutations
 
 
-## 3rd party technologies 
 
 
--Distance MAtrix API 
--Map JavaScript API
+
+
 
 
 
