@@ -14,6 +14,20 @@ But, what about in our neighborhood, maybe someone have the correct tool that we
 The Tools Finder app is the perfect app to connect our neighborhood, you can post your  tools and get money for it, and in the other side, someone can used whitout spending   money buying a tool that need it just one.
 
 
+## Table of Contents
+
+- [User Story](#User-Story)
+- [Wirefrmaes](#Wireframes)
+- [Deployed](#Deployed)
+- [Demo](#Deploy)
+- [Models](#Models)
+- [Technology](#technology)
+- [Installation](#installation)
+- [Usage](#Usage)
+- [License](#license)
+- [Questions](#Contact-Information)  
+
+
 ### Acceptance Criteria
 
 * The `/` route homepage route renders a list of all tools posted in the web, also the star reviews.
@@ -75,14 +89,9 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 
     *  `phone number`
 
-    * `tools`
-
+    * `mytools`
     
-
-
-
-
-
+    
 
   ## `Tool`
 
@@ -104,7 +113,9 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 
     * `hour-price`
 
-    * `rentedby`
+    * `rent`
+    
+    * `createdby`
 
 
 
@@ -121,10 +132,30 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 -graphql
 
 
+## Installation
+
+>server>npm Install
+>client>npm Install 
+
+
+## Usage
+ 
+ ```bash
+
+>npm run develop
+>http://localhost:3000 in the browser 
 
 
 
+# License 
+![License](https://img.shields.io/badge/License-MIT-blue.svg "License Badge")  
 
+
+
+## Contact-Information:
+
+    -GitHub Username: ivany9
+    -ivany9@gmail.com
 
 
 
