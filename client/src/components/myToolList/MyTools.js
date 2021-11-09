@@ -42,7 +42,7 @@ const MyTools = (props) => {
                         <ListGroup variant="flush">
                           <ListGroup.Item>
                             <div className="d-flex justify-content-between">
-                              <strong>Categories</strong>
+                              <strong>category</strong>
                               <span>{item.category}</span>
                             </div>
                           </ListGroup.Item>

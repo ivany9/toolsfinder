@@ -18,7 +18,7 @@ const Myrent = (props) => {
   //  refetch();
   return (
     <section className="w-75">
-      <div className="title text-white "><h4>Rented Tools</h4></div>
+      <div className="title text-white "><h4>Tools Rented</h4></div>
 
       <div>
         <div className="tools-container w-75">
@@ -34,7 +34,7 @@ const Myrent = (props) => {
                     <ListGroup variant="flush">
                       <ListGroup.Item>
                         <div className="d-flex justify-content-between">
-                          <strong>Categories</strong>
+                          <strong>category</strong>
                           <span>{item.category}</span>
                         </div>
                       </ListGroup.Item>
