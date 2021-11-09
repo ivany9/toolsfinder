@@ -19,7 +19,6 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 - [User Story](#User-Story)
 - [Wirefrmaes](#Wireframes)
 - [Deployed](#Deployed)
-- [Demo](#Deploy)
 - [Models](#Models)
 - [Technology](#technology)
 - [Installation](#installation)
