@@ -1,17 +1,17 @@
 ## Final Project Tools Finder 
 
-This Application is been  developing  as my final Project in the University of Sydney, to complete all the request to be a Web Developer. 
+This Application has been developed for my final Project in the University of Sydney Boot Camp, and completes all the requirements to become a Web Developer. 
 
 
 ## User Stories
 
-Sometimes when we are doing some works at home, fixing our car, triyng to repair the bicylce,hanging a picture in the wall, cleaneing the floor, working in the garden, etc, we dont have  tools to do  it, and to do this job just onces, we don't want to spend  money buying it, why?
+Sometimes we find ourselves wanting to do a job at home, fix our car, repair a bicycle, hang a picture on the wall, clean the floor, work in the garden, but we don't have  the tools to do it.  When we only need to do this job once, we don't want to spend a lot of money buying it.  Why?
 
-Because we never again are going to use it, or we dont have enought room to keep it.
+It could be because we are never going to use it again, or maybe we dont have enought room to store it.
 
-But, what about in our neighborhood, maybe someone have the correct tool that we are needing, and they have the tool in the garage that never used it,  also, they can get extra money rent it?
+What if within our own neighborhood someone had the exact tool that we needed to compete the job.  What if someone had a garage full of tools that they never use? What if they  would like to make some extra money renting their tools?
 
-The Tools Finder app is the perfect app to connect our neighborhood, you can post your  tools and get money for it, and in the other side, someone can used whitout spending   money buying a tool that need it just one.
+The Tools Finder app is the perfect app to connect our neighborhood and help you get that job done.  You can post your tools and make money from renting them out.  On the other side you can rent someone elses tools to get your job done, all without spending money buying a new tool that they would only use once.
 
 
 ## Table of Contents
@@ -29,7 +29,7 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 
 ### Acceptance Criteria
 
-* The `/` route homepage route renders a list of all tools posted in the web, also the star reviews.
+* The `/` route homepage route renders a list of all tools posted in the web.
 
 * The `/login` route renders a form to log in. 
 
@@ -43,7 +43,7 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 
 * The `/category/:id` route  renders all the  tool's  based on the route parameter id category.
 
-* The `/profile` route renders the logged-in user's toolsand the tools that you have rent and a form to create a new tool.
+* The `/profile` route renders the logged-in user's toolsvand the tools that you have rent and a form to create a new tool.
  
 * In the `/profile` you can update and delete yours tools
 
@@ -51,7 +51,7 @@ The Tools Finder app is the perfect app to connect our neighborhood, you can pos
 
 * The user  logged  is redirected to `/profile` when they try to visit `/login` again.
 
-* The user on the profile page can use the form to create a new tool and  1 photo in .
+* The user on the profile page can use the form to create a new tool.
 
 * The a user on the profile page can select a "Delete" button to remove their tool from the database.
 
